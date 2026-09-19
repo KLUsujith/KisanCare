@@ -13,16 +13,7 @@ export function AppProvider({ children }) {
   const [user, setUser] = useState(() => {
     try {
       const stored = localStorage.getItem("kisancare_user");
-      return stored ? JSON.parse(stored) : {
-        name: "K. Anjaneyulu Reddy (రైతు)",
-        phone: "9440177889",
-        role: "farmer",
-        acresOwned: 3.5,
-        village: "Tenali Rural",
-        district: "Guntur",
-        state: "Andhra Pradesh",
-        preferredCrop: "Chilli (మిరప)"
-      };
+      return stored ? JSON.parse(stored) : null;
     } catch (e) {
       return null;
     }
@@ -46,7 +37,15 @@ export function AppProvider({ children }) {
     }
   });
 
-  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(() => {
+    // Auto-open login modal if no user is saved
+    try {
+      const stored = localStorage.getItem("kisancare_user");
+      return !stored;
+    } catch (e) {
+      return true;
+    }
+  });
   const [role, setRole] = useState(() => user?.role || "farmer");
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [pendingSyncCount, setPendingSyncCount] = useState(0);

@@ -19,13 +19,13 @@ import {
 } from "lucide-react";
 
 export default function LoginModal({ isOpen, onClose }) {
-  const { login, languages, language, changeLanguage, showToast, setActiveTab } = useApp();
+  const { login, languages, language, changeLanguage, showToast, setActiveTab, user } = useApp();
 
   const [authRoleTab, setAuthRoleTab] = useState("farmer"); // 'farmer' | 'register' | 'admin'
 
-  // Farmer login state
-  const [farmerPhone, setFarmerPhone] = useState("9440177889");
-  const [farmerOtp, setFarmerOtp] = useState("123456");
+  // Farmer login state — cleared for real use (demo hint shown in UI)
+  const [farmerPhone, setFarmerPhone] = useState("");
+  const [farmerOtp, setFarmerOtp] = useState("");
   const [otpSent, setOtpSent] = useState(false);
 
   // Admin login state
@@ -175,13 +175,15 @@ export default function LoginModal({ isOpen, onClose }) {
     <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-3 overflow-y-auto">
       <div className="bg-white rounded-3xl max-w-md w-full p-5 sm:p-6 shadow-2xl border border-slate-200 my-6 relative">
         
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 p-1.5 text-slate-400 hover:text-slate-600 rounded-xl hover:bg-slate-100 transition"
-        >
-          <X className="w-5 h-5" />
-        </button>
+        {/* Close Button — only shown if already logged in */}
+        {user && (
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 p-1.5 text-slate-400 hover:text-slate-600 rounded-xl hover:bg-slate-100 transition"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        )}
 
         {/* Brand Header */}
         <div className="flex items-center space-x-2.5 mb-4 border-b border-slate-100 pb-3">

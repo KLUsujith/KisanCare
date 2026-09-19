@@ -121,7 +121,7 @@ export default function Navbar() {
                   >
                     <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />
                     <span className="font-extrabold text-white truncate max-w-[110px] sm:max-w-[150px]">
-                      {user.name.split(" ")[0]}
+                      {(user?.name || "Admin").split(" ")[0]}
                     </span>
                     <span className="text-[10px] font-bold bg-blue-700/80 text-blue-100 px-1.5 py-0.5 rounded">
                       Admin
@@ -135,10 +135,10 @@ export default function Navbar() {
                   >
                     <UserCheck className="w-3.5 h-3.5 text-emerald-400" />
                     <span className="font-extrabold text-white truncate max-w-[110px] sm:max-w-[150px]">
-                      {user.name.split(" ")[0]}
+                      {(user?.name || "రైతు").split(" ")[0]}
                     </span>
                     <span className="text-[10px] font-bold bg-emerald-700/80 text-emerald-100 px-1.5 py-0.5 rounded">
-                      {farmProfile?.totalAcres || user.acresOwned || 3.5} Ac
+                      {farmProfile?.totalAcres || user?.acresOwned || 3.5} Ac
                     </span>
                   </div>
                 )}

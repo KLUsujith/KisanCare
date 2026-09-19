@@ -54,17 +54,26 @@ app.use("/api/analytics", analyticsRouter);
 
 // Serve static frontend in production if built
 const distPath = path.join(__dirname, "../dist");
-app.use(express.static(distPath));
-
-// Fallback for SPA routing
-app.get("*", (req, res) => {
-  if (req.url.startsWith("/api")) {
-    return res.status(404).json({ error: "Endpoint not found" });
+app.use(express.static(distPath, {
+  setHeaders: (res, filePath) => {
+    if (filePath.endsWith("index.html")) {
+      res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+      res.setHeader("Pragma", "no-cache");
+      res.setHeader("Expires", "0");
+    }
   }
+}));
+
+// Fallback for SPA routing (do not serve index.html for missing assets)
+app.get("*", (req, res) => {
+  if (req.url.startsWith("/api") || req.url.startsWith("/assets") || path.extname(req.url)) {
+    return res.status(404).send("Resource not found");
+  }
+  res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
   const indexPath = path.join(distPath, "index.html");
   res.sendFile(indexPath, (err) => {
     if (err) {
-      res.status(200).send("KisanSetu Backend API is active on port " + PORT + ". Run Vite client on port 5173 for development.");
+      res.status(200).send("KisanCare Backend API is active on port " + PORT + ".");
     }
   });
 });
