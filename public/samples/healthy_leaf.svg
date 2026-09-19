@@ -1,0 +1,15 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#f4f6f0" />
+  <!-- Healthy Vibrant Green Leaf -->
+  <path d="M 200 360 C 195 280 110 260 100 180 C 90 110 160 60 200 40 C 240 60 310 110 300 180 C 290 260 205 280 200 360 Z" fill="#22c55e" stroke="#15803d" stroke-width="3" />
+  <!-- Leaf Vein System -->
+  <path d="M 200 350 L 200 50" stroke="#86efac" stroke-width="4" />
+  <path d="M 200 110 Q 150 110 125 130" stroke="#86efac" stroke-width="2.5" fill="none" />
+  <path d="M 200 110 Q 250 110 275 130" stroke="#86efac" stroke-width="2.5" fill="none" />
+  <path d="M 200 170 Q 140 175 115 200" stroke="#86efac" stroke-width="2.5" fill="none" />
+  <path d="M 200 170 Q 260 175 285 200" stroke="#86efac" stroke-width="2.5" fill="none" />
+  <path d="M 200 230 Q 150 240 130 265" stroke="#86efac" stroke-width="2" fill="none" />
+  <path d="M 200 230 Q 250 240 270 265" stroke="#86efac" stroke-width="2" fill="none" />
+  <circle cx="200" cy="200" r="6" fill="#15803d" opacity="0.3" />
+  <text x="200" y="380" font-family="sans-serif" font-size="14" font-weight="bold" fill="#15803d" text-anchor="middle">Sample: 100% Healthy Leaf</text>
+</svg>

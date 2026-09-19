@@ -1,0 +1,344 @@
+[
+  {
+    "district": "Nashik",
+    "state": "Maharashtra",
+    "predominantSoil": "Medium to Deep Black Clayey Soil",
+    "rainfallPattern": "750 - 900 mm (Sub-humid Western Ghats edge)",
+    "recommendedCrops": [
+      {
+        "crop": "Tomato",
+        "cropHi": "टमाटर",
+        "cropTe": "టమాట",
+        "varietyRecommended": "Vaishali / Arka Rakshak / Abhinav",
+        "suitabilityScore": 96,
+        "season": "Kharif & Rabi (All Year with drip)",
+        "avgYieldPerAcreQuintals": 140,
+        "cultivationCostPerAcre": 42000,
+        "costBreakdown": {
+          "seeds": 4500,
+          "landPrep": 5000,
+          "fertilizerAndManure": 9500,
+          "plantProtection": 7000,
+          "irrigationAndStaking": 8000,
+          "harvestLabor": 8000
+        },
+        "waterRequirement": "Medium (Thrives with Drip Irrigation)",
+        "durationDays": 110,
+        "soilFitReason": "Rich volcanic black soil with high calcium and potassium promotes firm red fruit setting without blossom-end rot."
+      },
+      {
+        "crop": "Onion",
+        "cropHi": "प्याज़",
+        "cropTe": "ఉల్లిపాయ",
+        "varietyRecommended": "Bhima Super / Garwa Red",
+        "suitabilityScore": 94,
+        "season": "Late Kharif (Rangada) & Rabi (Garwa)",
+        "avgYieldPerAcreQuintals": 110,
+        "cultivationCostPerAcre": 35000,
+        "costBreakdown": {
+          "seeds": 6000,
+          "landPrep": 4500,
+          "fertilizerAndManure": 7500,
+          "plantProtection": 5000,
+          "irrigationAndStaking": 4000,
+          "harvestLabor": 8000
+        },
+        "waterRequirement": "Medium",
+        "durationDays": 125,
+        "soilFitReason": "Well-drained medium black soils of Dindori and Niphad produce tight-skinned export quality bulbs."
+      },
+      {
+        "crop": "Soybean",
+        "cropHi": "सोयाबीन",
+        "cropTe": "సోయాబీన్",
+        "varietyRecommended": "JS-335 / JS-9560",
+        "suitabilityScore": 88,
+        "season": "Kharif (Monsoon)",
+        "avgYieldPerAcreQuintals": 10,
+        "cultivationCostPerAcre": 14500,
+        "costBreakdown": {
+          "seeds": 3200,
+          "landPrep": 3000,
+          "fertilizerAndManure": 3800,
+          "plantProtection": 2000,
+          "irrigationAndStaking": 500,
+          "harvestLabor": 2000
+        },
+        "waterRequirement": "Rainfed / Low",
+        "durationDays": 95,
+        "soilFitReason": "Nitrogen-fixing nodules develop rapidly in clayey soil, requiring minimal urea."
+      }
+    ]
+  },
+  {
+    "district": "Warangal",
+    "state": "Telangana",
+    "predominantSoil": "Red Sandy Loam with Chalkas and Mixed Black",
+    "rainfallPattern": "900 - 1050 mm (Tropical Savanna)",
+    "recommendedCrops": [
+      {
+        "crop": "Cotton",
+        "cropHi": "कपास",
+        "cropTe": "పత్తి",
+        "varietyRecommended": "Bt Cotton RCH-659 / Bollgard II",
+        "suitabilityScore": 95,
+        "season": "Kharif (June - Dec)",
+        "avgYieldPerAcreQuintals": 11,
+        "cultivationCostPerAcre": 28000,
+        "costBreakdown": {
+          "seeds": 3600,
+          "landPrep": 4000,
+          "fertilizerAndManure": 6500,
+          "plantProtection": 5500,
+          "irrigationAndStaking": 2400,
+          "harvestLabor": 6000
+        },
+        "waterRequirement": "Medium (Deep root system)",
+        "durationDays": 160,
+        "soilFitReason": "Warangal black cotton pockets store optimal moisture for heavy boll retention through flowering."
+      },
+      {
+        "crop": "Chilli",
+        "cropHi": "मिर्च",
+        "cropTe": "మిరప",
+        "varietyRecommended": "Warangal Chappatta / Teja Hybrid",
+        "suitabilityScore": 93,
+        "season": "Kharif to Early Rabi",
+        "avgYieldPerAcreQuintals": 22,
+        "cultivationCostPerAcre": 55000,
+        "costBreakdown": {
+          "seeds": 5000,
+          "landPrep": 6000,
+          "fertilizerAndManure": 12000,
+          "plantProtection": 16000,
+          "irrigationAndStaking": 6000,
+          "harvestLabor": 10000
+        },
+        "waterRequirement": "High (Regular light irrigation)",
+        "durationDays": 180,
+        "soilFitReason": "Red sandy loam provides excellent aeration preventing phytophthora root rot."
+      },
+      {
+        "crop": "Maize",
+        "cropHi": "मक्का",
+        "cropTe": "మొక్కజొన్న",
+        "varietyRecommended": "DHM-117 / Pioneer Hybrid",
+        "suitabilityScore": 90,
+        "season": "Kharif & Rabi",
+        "avgYieldPerAcreQuintals": 28,
+        "cultivationCostPerAcre": 18000,
+        "costBreakdown": {
+          "seeds": 2800,
+          "landPrep": 3200,
+          "fertilizerAndManure": 5200,
+          "plantProtection": 2800,
+          "irrigationAndStaking": 1500,
+          "harvestLabor": 2500
+        },
+        "waterRequirement": "Medium",
+        "durationDays": 105,
+        "soilFitReason": "High soil zinc and phosphorus response gives large cob grain weight."
+      }
+    ]
+  },
+  {
+    "district": "Ludhiana",
+    "state": "Punjab",
+    "predominantSoil": "Fertile Indo-Gangetic Alluvial Loam",
+    "rainfallPattern": "650 - 750 mm (Extensive Canal + Tubewell)",
+    "recommendedCrops": [
+      {
+        "crop": "Wheat",
+        "cropHi": "गेहूं",
+        "cropTe": "గోధుమలు",
+        "varietyRecommended": "HD-3086 / PBW-824 / DBW-187",
+        "suitabilityScore": 98,
+        "season": "Rabi (Nov - April)",
+        "avgYieldPerAcreQuintals": 21,
+        "cultivationCostPerAcre": 16500,
+        "costBreakdown": {
+          "seeds": 1600,
+          "landPrep": 3500,
+          "fertilizerAndManure": 4200,
+          "plantProtection": 2200,
+          "irrigationAndStaking": 2000,
+          "harvestLabor": 3000
+        },
+        "waterRequirement": "Medium (4-5 critical irrigations)",
+        "durationDays": 140,
+        "soilFitReason": "Cool winter nights and deep alluvial loam deliver highest grain protein and test weight."
+      },
+      {
+        "crop": "Rice / Paddy",
+        "cropHi": "धान (चावल)",
+        "cropTe": "వరి",
+        "varietyRecommended": "Pusa Basmati 1121 / PR-126",
+        "suitabilityScore": 96,
+        "season": "Kharif (June - Oct)",
+        "avgYieldPerAcreQuintals": 24,
+        "cultivationCostPerAcre": 24000,
+        "costBreakdown": {
+          "seeds": 1400,
+          "landPrep": 5000,
+          "fertilizerAndManure": 5600,
+          "plantProtection": 3500,
+          "irrigationAndStaking": 4500,
+          "harvestLabor": 4000
+        },
+        "waterRequirement": "High",
+        "durationDays": 130,
+        "soilFitReason": "Alluvial silt gives long, aromatic grain elongation prized by Gulf exporters."
+      }
+    ]
+  },
+  {
+    "district": "Agra",
+    "state": "Uttar Pradesh",
+    "predominantSoil": "Sandy Alluvial to Loam (Yamuna Basin)",
+    "rainfallPattern": "650 - 720 mm (Semi-arid Gangetic)",
+    "recommendedCrops": [
+      {
+        "crop": "Potato",
+        "cropHi": "आलू",
+        "cropTe": "బంగాళాదుంప",
+        "varietyRecommended": "Kufri Chipsona-1 / Kufri Jyoti / Pukhraj",
+        "suitabilityScore": 97,
+        "season": "Rabi (Oct - Feb)",
+        "avgYieldPerAcreQuintals": 125,
+        "cultivationCostPerAcre": 38000,
+        "costBreakdown": {
+          "seeds": 18000,
+          "landPrep": 4200,
+          "fertilizerAndManure": 6800,
+          "plantProtection": 3200,
+          "irrigationAndStaking": 2800,
+          "harvestLabor": 3000
+        },
+        "waterRequirement": "Medium",
+        "durationDays": 95,
+        "soilFitReason": "Loose friable sandy loam allows uninhibited underground tuber expansion and clean peel harvest."
+      },
+      {
+        "crop": "Mustard",
+        "cropHi": "सरसों",
+        "cropTe": "ఆవాలు",
+        "varietyRecommended": "Giriraj / RH-749",
+        "suitabilityScore": 92,
+        "season": "Rabi (Oct - March)",
+        "avgYieldPerAcreQuintals": 10,
+        "cultivationCostPerAcre": 11500,
+        "costBreakdown": {
+          "seeds": 900,
+          "landPrep": 2800,
+          "fertilizerAndManure": 3400,
+          "plantProtection": 1600,
+          "irrigationAndStaking": 1200,
+          "harvestLabor": 1600
+        },
+        "waterRequirement": "Low",
+        "durationDays": 120,
+        "soilFitReason": "Drought-tolerant taproot extracts deep subsoil moisture."
+      }
+    ]
+  },
+  {
+    "district": "Guntur",
+    "state": "Andhra Pradesh",
+    "predominantSoil": "Deep Coastal Black Cotton Soil",
+    "rainfallPattern": "850 - 950 mm (Krishna Delta)",
+    "recommendedCrops": [
+      {
+        "crop": "Chilli",
+        "cropHi": "मिर्च",
+        "cropTe": "మిరప",
+        "varietyRecommended": "Guntur Teja (S-4) / Armoor",
+        "suitabilityScore": 98,
+        "season": "Kharif to Rabi",
+        "avgYieldPerAcreQuintals": 24,
+        "cultivationCostPerAcre": 62000,
+        "costBreakdown": {
+          "seeds": 6500,
+          "landPrep": 7000,
+          "fertilizerAndManure": 14000,
+          "plantProtection": 18000,
+          "irrigationAndStaking": 6500,
+          "harvestLabor": 10000
+        },
+        "waterRequirement": "High",
+        "durationDays": 190,
+        "soilFitReason": "High capsaicin oil yield and intense red SHU color value produced specifically by Guntur black soil."
+      },
+      {
+        "crop": "Cotton",
+        "cropHi": "कपास",
+        "cropTe": "పత్తి",
+        "varietyRecommended": "Bollgard II Hybrid",
+        "suitabilityScore": 91,
+        "season": "Kharif",
+        "avgYieldPerAcreQuintals": 10,
+        "cultivationCostPerAcre": 26000,
+        "costBreakdown": {
+          "seeds": 3200,
+          "landPrep": 4000,
+          "fertilizerAndManure": 6000,
+          "plantProtection": 5200,
+          "irrigationAndStaking": 2600,
+          "harvestLabor": 5000
+        },
+        "waterRequirement": "Medium",
+        "durationDays": 155,
+        "soilFitReason": "Clayey delta subsoil maintains continuous boll filling without mid-season drought drop."
+      }
+    ]
+  },
+  {
+    "district": "Indore",
+    "state": "Madhya Pradesh",
+    "predominantSoil": "Rich Black Vertisol (Malwa Plateau)",
+    "rainfallPattern": "850 - 1000 mm (Sub-humid)",
+    "recommendedCrops": [
+      {
+        "crop": "Soybean",
+        "cropHi": "सोयाबीन",
+        "cropTe": "సోయాబీన్",
+        "varietyRecommended": "JS-335 / NRC-37",
+        "suitabilityScore": 96,
+        "season": "Kharif",
+        "avgYieldPerAcreQuintals": 11,
+        "cultivationCostPerAcre": 13800,
+        "costBreakdown": {
+          "seeds": 3000,
+          "landPrep": 2800,
+          "fertilizerAndManure": 3600,
+          "plantProtection": 2000,
+          "irrigationAndStaking": 600,
+          "harvestLabor": 1800
+        },
+        "waterRequirement": "Rainfed",
+        "durationDays": 95,
+        "soilFitReason": "Known as the 'Soybean Bowl of India'; high montmorillonite clay content provides ideal seedbed."
+      },
+      {
+        "crop": "Wheat",
+        "cropHi": "गेहूं",
+        "cropTe": "గోధుमలు",
+        "varietyRecommended": "Sharbati C-306 / Lok-1",
+        "suitabilityScore": 95,
+        "season": "Rabi",
+        "avgYieldPerAcreQuintals": 16,
+        "cultivationCostPerAcre": 15000,
+        "costBreakdown": {
+          "seeds": 1500,
+          "landPrep": 3200,
+          "fertilizerAndManure": 4000,
+          "plantProtection": 1800,
+          "irrigationAndStaking": 2000,
+          "harvestLabor": 2500
+        },
+        "waterRequirement": "Medium",
+        "durationDays": 130,
+        "soilFitReason": "Golden amber luster and premium sweetness of Malwa Sharbati wheat fetches +40% premium in metro cities."
+      }
+    ]
+  }
+]

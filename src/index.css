@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Indian regional scripts smooth rendering */
+:lang(hi), :lang(mr) {
+  font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+}
+:lang(te) {
+  font-family: 'Noto Sans Telugu', 'Inter', sans-serif;
+}
+:lang(ta) {
+  font-family: 'Noto Sans Tamil', 'Inter', sans-serif;
+}
