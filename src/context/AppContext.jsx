@@ -46,6 +46,7 @@ export function AppProvider({ children }) {
       return true;
     }
   });
+  const [showDemoVideo, setShowDemoVideo] = useState(false);
   const [role, setRole] = useState(() => user?.role || "farmer");
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [pendingSyncCount, setPendingSyncCount] = useState(0);
@@ -161,6 +162,8 @@ export function AppProvider({ children }) {
         updateFarmProfile,
         showLoginModal,
         setShowLoginModal,
+        showDemoVideo,
+        setShowDemoVideo,
         role,
         setRole,
         isOnline,

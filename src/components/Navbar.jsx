@@ -21,7 +21,8 @@ import {
   LogOut,
   ShieldCheck,
   Menu,
-  X
+  X,
+  Film
 } from "lucide-react";
 
 export default function Navbar() {
@@ -34,6 +35,8 @@ export default function Navbar() {
     logout,
     farmProfile,
     setShowLoginModal,
+    showDemoVideo,
+    setShowDemoVideo,
     isOnline, 
     setIsOnline,
     pendingSyncCount,
@@ -195,6 +198,16 @@ export default function Navbar() {
               )}
             </div>
 
+            {/* Watch Demo Video Button */}
+            <button
+              onClick={() => setShowDemoVideo(true)}
+              className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-black text-xs px-2.5 py-1.5 rounded-xl shadow transition flex items-center gap-1.5 cursor-pointer"
+              title="Watch 16-Second Platform Demo Video"
+            >
+              <Film className="w-3.5 h-3.5 text-slate-900" />
+              <span className="hidden sm:inline">డెమో వీడియో / Demo</span>
+            </button>
+
             {/* Online / Offline Simulator Toggle */}
             <button
               onClick={() => {
@@ -266,6 +279,17 @@ export default function Navbar() {
       {/* Mobile Drawer (When hamburger clicked) */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-agri-900 border-t border-agri-700 px-3 py-3 space-y-1 animate-in slide-in-from-top">
+          {/* Watch Demo Video in mobile drawer */}
+          <button
+            onClick={() => {
+              setShowDemoVideo(true);
+              setMobileMenuOpen(false);
+            }}
+            className="w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold flex items-center space-x-2.5 bg-amber-400 text-slate-950 shadow mb-2"
+          >
+            <Film className="w-4 h-4 text-slate-900" />
+            <span>🎬 డెమో వీడియో చూడండి (Watch Platform Demo)</span>
+          </button>
           {navItems.map((item) => {
             const Icon = item.icon;
             return (

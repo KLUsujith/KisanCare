@@ -9,6 +9,23 @@
 
 ---
 
+## 🎬 Sample Walkthrough Video (డెమో వీడియో)
+
+Watch the 16-second HD overview of the KisanCare platform:
+
+> 📹 **Sample Video File**: [`public/demo_sample.mp4`](public/demo_sample.mp4) • [`public/demo_sample.webm`](public/demo_sample.webm)  
+> *In the live web application at `http://localhost:5001/`, click the glowing **"🎬 డెమో వీడియో / Demo"** button in the top navigation bar to watch the video with playback controls!*
+
+| ⏱️ Timestamp | Feature Showcase | Key Highlights |
+|---|---|---|
+| **0:00 - 0:03** | **Platform Introduction** | Bilingual Telugu & English mobile-first UI for small & marginal farmers |
+| **0:03 - 0:06** | **Role-Based Authentication** | Farmer OTP login with 1-click presets; Admin Dashboard strictly hidden for farmers |
+| **0:06 - 0:09** | **AI Crop Doctor** | Active leaf scan, 94.8% Early Blight detection, organic recipes & knapsack sprayer dosage |
+| **0:09 - 0:12** | **Income Estimator & Seeds** | Transparent 3-Scenario math (Low/Expected/High) per acre & certified NSC seeds |
+| **0:12 - 0:16** | **Direct Market & Master Admin** | Live APMC Mandi rates, WhatsApp buyer connection, and Admin control panel |
+
+---
+
 ## 🌾 Features
 
 | Module | Description |

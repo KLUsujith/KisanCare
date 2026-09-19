@@ -13,10 +13,11 @@ import MyFarm from "./components/MyFarm.jsx";
 import AdminPanel from "./components/AdminPanel.jsx";
 import VoiceAssistant from "./components/VoiceAssistant.jsx";
 import LoginModal from "./components/LoginModal.jsx";
+import DemoVideoModal from "./components/DemoVideoModal.jsx";
 import { PhoneCall, ShieldCheck, Sprout } from "lucide-react";
 
 function MainContent() {
-  const { activeTab, setActiveTab, toastMessage, language, showLoginModal, setShowLoginModal, user } = useApp();
+  const { activeTab, setActiveTab, toastMessage, language, showLoginModal, setShowLoginModal, showDemoVideo, setShowDemoVideo, user } = useApp();
 
   return (
     <div className="min-h-screen flex flex-col justify-between bg-stone-50" lang={language}>
@@ -91,6 +92,9 @@ function MainContent() {
 
       {/* Login / Registration Modal */}
       <LoginModal isOpen={showLoginModal} onClose={() => setShowLoginModal(false)} />
+
+      {/* Sample Walkthrough Demo Video Modal */}
+      <DemoVideoModal isOpen={showDemoVideo} onClose={() => setShowDemoVideo(false)} />
 
       {/* Floating Interactive Voice Assistant */}
       <VoiceAssistant />

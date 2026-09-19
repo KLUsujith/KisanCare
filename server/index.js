@@ -13,11 +13,21 @@ import seedsRouter from "./routes/seeds.js";
 import myfarmRouter from "./routes/myfarm.js";
 import adminRouter from "./routes/admin.js";
 
+import fs from "fs";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 5001;
+
+// Endpoint to save recorded demo video
+app.post("/api/save-demo-video", express.raw({ type: "*/*", limit: "50mb" }), (req, res) => {
+  const videoPath = path.join(__dirname, "../public/demo_sample.webm");
+  fs.writeFileSync(videoPath, req.body);
+  console.log("Recorded video saved successfully:", req.body.length, "bytes to", videoPath);
+  res.json({ success: true, bytes: req.body.length });
+});
 
 // Middleware
 app.use(cors());
