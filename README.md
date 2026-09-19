@@ -2,10 +2,13 @@
 
 > An integrated, multilingual platform for small and marginal farmers — from crop care to selling their produce — with separate **Farmer** and **Admin** portals.
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-success?style=for-the-badge&logo=github)](https://klusujith.github.io/KisanCare/)
 [![Built with React](https://img.shields.io/badge/Frontend-React%2018%20%2B%20Vite-61DAFB?style=flat&logo=react)](https://react.dev)
 [![Backend](https://img.shields.io/badge/Backend-Express.js-000000?style=flat&logo=express)](https://expressjs.com)
 [![Tailwind CSS](https://img.shields.io/badge/UI-Tailwind%20CSS-38B2AC?style=flat&logo=tailwindcss)](https://tailwindcss.com)
 [![Telugu & English](https://img.shields.io/badge/Language-Telugu%20%7C%20English-green)]()
+
+🌐 **Live Deployment**: **[https://klusujith.github.io/KisanCare/](https://klusujith.github.io/KisanCare/)**
 
 ---
 
