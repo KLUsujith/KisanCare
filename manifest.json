@@ -1,0 +1,16 @@
+{
+  "short_name": "KisanSetu",
+  "name": "KisanSetu - Smart Crop Care & Direct Market",
+  "icons": [
+    {
+      "src": "/samples/healthy_leaf.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192 512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#15803d",
+  "theme_color": "#15803d",
+  "display": "standalone",
+  "orientation": "portrait"
+}

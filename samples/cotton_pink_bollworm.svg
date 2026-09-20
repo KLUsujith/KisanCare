@@ -1,0 +1,16 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#f4f6f0" />
+  <!-- Cotton Leaf 3-lobed -->
+  <path d="M 200 340 L 200 240 Q 140 250 80 200 Q 130 170 140 140 Q 160 80 200 60 Q 240 80 260 140 Q 270 170 320 200 Q 260 250 200 240 Z" fill="#3c8233" stroke="#22541c" stroke-width="3" />
+  <!-- Cotton Boll at lower right -->
+  <circle cx="280" cy="280" r="42" fill="#e8f3e5" stroke="#486940" stroke-width="3" />
+  <!-- Pest borehole with frass / dark stain -->
+  <ellipse cx="270" cy="275" rx="9" ry="7" fill="#1c0e08" />
+  <circle cx="273" cy="272" r="14" fill="none" stroke="#78350f" stroke-width="4" stroke-dasharray="3,3" />
+  <!-- Caterpillar / Bollworm larvae creeping -->
+  <path d="M 255 260 Q 262 250 270 255 Q 278 260 285 252" stroke="#f472b6" stroke-width="7" fill="none" stroke-linecap="round" />
+  <!-- Chewed leaf margins -->
+  <circle cx="110" cy="180" r="15" fill="#f4f6f0" />
+  <circle cx="240" cy="90" r="12" fill="#f4f6f0" />
+  <text x="200" y="380" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2d5e1b" text-anchor="middle">Sample: Cotton Pink Bollworm</text>
+</svg>

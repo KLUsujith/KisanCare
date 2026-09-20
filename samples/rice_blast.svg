@@ -1,0 +1,17 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#f4f6f0" />
+  <!-- Elongated Rice Blade -->
+  <path d="M 200 370 Q 180 250 160 160 Q 140 70 200 30 Q 240 80 230 180 Q 215 280 200 370 Z" fill="#589e35" stroke="#2e6118" stroke-width="3" />
+  <!-- Midrib line -->
+  <path d="M 200 370 Q 175 180 200 30" stroke="#7ec357" stroke-width="3" fill="none" />
+  <!-- Spindle / Diamond Rice Blast Lesions -->
+  <!-- Lesion 1 -->
+  <ellipse cx="178" cy="150" rx="14" ry="32" transform="rotate(-15 178 150)" fill="#e2e8f0" stroke="#7f1d1d" stroke-width="4" />
+  <ellipse cx="178" cy="150" rx="6" ry="18" transform="rotate(-15 178 150)" fill="#475569" />
+  <!-- Lesion 2 -->
+  <ellipse cx="195" cy="230" rx="12" ry="28" transform="rotate(10 195 230)" fill="#cbd5e1" stroke="#991b1b" stroke-width="3.5" />
+  <ellipse cx="195" cy="230" rx="5" ry="14" transform="rotate(10 195 230)" fill="#334155" />
+  <!-- Lesion 3 (small) -->
+  <ellipse cx="170" cy="280" rx="8" ry="18" transform="rotate(-8 170 280)" fill="#e2e8f0" stroke="#7f1d1d" stroke-width="2.5" />
+  <text x="200" y="380" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2d5e1b" text-anchor="middle">Sample: Rice Blast Lesions</text>
+</svg>

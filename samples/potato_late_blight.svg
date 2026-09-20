@@ -1,0 +1,15 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#f4f6f0" />
+  <!-- Potato Leaf Compound Leaflet -->
+  <path d="M 200 360 Q 200 280 200 200 Q 120 180 110 240 Q 130 300 200 280 Z" fill="#4d8c36" stroke="#255416" stroke-width="2.5" />
+  <path d="M 200 360 Q 200 280 200 200 Q 280 180 290 240 Q 270 300 200 280 Z" fill="#4d8c36" stroke="#255416" stroke-width="2.5" />
+  <!-- Terminal Large Leaflet -->
+  <path d="M 200 220 C 130 180 120 100 200 50 C 280 100 270 180 200 220 Z" fill="#437d2f" stroke="#255416" stroke-width="3" />
+  <!-- Late Blight: Large irregular water-soaked blackened patch -->
+  <path d="M 170 60 C 130 90 135 140 165 150 C 190 160 205 130 200 100 C 195 70 185 60 170 60 Z" fill="#262626" stroke="#171717" stroke-width="2" />
+  <!-- Pale yellow/water-soaked edge -->
+  <path d="M 165 55 C 120 90 125 145 160 155" stroke="#a3e635" stroke-width="5" fill="none" opacity="0.8" />
+  <!-- White fuzzy mold underside rim -->
+  <path d="M 160 65 C 135 95 138 135 165 145" stroke="#f8fafc" stroke-width="2.5" stroke-dasharray="3,2" fill="none" />
+  <text x="200" y="380" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2d5e1b" text-anchor="middle">Sample: Potato Late Blight</text>
+</svg>

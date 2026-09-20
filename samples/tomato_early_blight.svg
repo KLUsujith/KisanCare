@@ -1,0 +1,47 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="halo1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4a2511" />
+      <stop offset="60%" stop-color="#8c471b" />
+      <stop offset="85%" stop-color="#c99a2c" />
+      <stop offset="100%" stop-color="#3b7a2b" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="halo2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3d1e0d" />
+      <stop offset="55%" stop-color="#733b15" />
+      <stop offset="80%" stop-color="#d4aa33" />
+      <stop offset="100%" stop-color="#3b7a2b" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="#f4f6f0" />
+  <!-- Stem -->
+  <path d="M 200 380 Q 205 260 200 120" stroke="#336622" stroke-width="8" fill="none" stroke-linecap="round" />
+  <!-- Leaf Body -->
+  <path d="M 200 120 C 130 90, 80 160, 100 240 C 115 300, 160 320, 200 340 C 240 320, 285 300, 300 240 C 320 160, 270 90, 200 120 Z" fill="#4d9334" stroke="#2d5e1b" stroke-width="3" />
+  <!-- Leaf Veins -->
+  <path d="M 200 130 L 200 330" stroke="#32681e" stroke-width="4" />
+  <path d="M 200 170 Q 150 160 120 180" stroke="#3d7d25" stroke-width="2.5" fill="none" />
+  <path d="M 200 170 Q 250 160 280 180" stroke="#3d7d25" stroke-width="2.5" fill="none" />
+  <path d="M 200 220 Q 140 215 110 245" stroke="#3d7d25" stroke-width="2.5" fill="none" />
+  <path d="M 200 220 Q 260 215 290 245" stroke="#3d7d25" stroke-width="2.5" fill="none" />
+  <path d="M 200 270 Q 160 270 130 295" stroke="#3d7d25" stroke-width="2" fill="none" />
+  <path d="M 200 270 Q 240 270 270 295" stroke="#3d7d25" stroke-width="2" fill="none" />
+  
+  <!-- Early Blight Lesion 1 (Target concentric rings) -->
+  <circle cx="150" cy="210" r="32" fill="url(#halo1)" />
+  <circle cx="150" cy="210" r="24" fill="none" stroke="#2b1406" stroke-width="2" stroke-dasharray="3,2" />
+  <circle cx="150" cy="210" r="16" fill="none" stroke="#2b1406" stroke-width="2" />
+  <circle cx="150" cy="210" r="8" fill="#1f0e04" />
+  
+  <!-- Early Blight Lesion 2 -->
+  <circle cx="240" cy="250" r="38" fill="url(#halo2)" />
+  <circle cx="240" cy="250" r="28" fill="none" stroke="#2b1406" stroke-width="2" stroke-dasharray="4,2" />
+  <circle cx="240" cy="250" r="18" fill="none" stroke="#2b1406" stroke-width="2" />
+  <circle cx="240" cy="250" r="9" fill="#1f0e04" />
+
+  <!-- Minor satellite spots -->
+  <circle cx="170" cy="275" r="12" fill="#542c0c" opacity="0.9" />
+  <circle cx="225" cy="180" r="14" fill="#542c0c" opacity="0.85" />
+  <circle cx="130" cy="150" r="8" fill="#784212" opacity="0.8" />
+  <text x="200" y="380" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2d5e1b" text-anchor="middle">Sample: Tomato Early Blight</text>
+</svg>
