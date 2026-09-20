@@ -65,6 +65,14 @@ router.post("/", (req, res) => {
           { x: 175, y: 110, radius: 65, intensity: 0.95, label: "Phytophthora Water-Soaked Lesion" },
           { x: 160, y: 145, radius: 40, intensity: 0.85, label: "White Mold Zone" }
         ];
+      } else if (sampleId.includes("chilli") || sampleId === "chilli-leaf-curl") {
+        matchedDisease = cropDiseases.find(d => d.id === "chilli-leaf-curl") || cropDiseases[0];
+        confidence = 0.95;
+        severity = 46;
+        heatmapPoints = [
+          { x: 185, y: 170, radius: 42, intensity: 0.9, label: "Thrips Upward Cup Curling" },
+          { x: 230, y: 220, radius: 38, intensity: 0.85, label: "Mite Puckering Zone" }
+        ];
       } else if (sampleId.includes("healthy")) {
         matchedDisease = cropDiseases.find(d => d.id === "healthy-crop");
         confidence = 0.98;
@@ -83,12 +91,23 @@ router.post("/", (req, res) => {
       if (!matchedDisease) {
         matchedDisease = cropDiseases[0];
       }
-      confidence = +(0.88 + Math.random() * 0.09).toFixed(2);
-      severity = matchedDisease.id === "healthy-crop" ? 0 : Math.floor(25 + Math.random() * 35);
+      confidence = +(0.92 + Math.random() * 0.06).toFixed(2);
+      severity = matchedDisease.id === "healthy-crop" ? 0 : Math.floor(30 + Math.random() * 25);
       heatmapPoints = matchedDisease.id === "healthy-crop" ? [] : [
         { x: 160, y: 190, radius: 45, intensity: 0.88, label: "Infection Lesion" },
         { x: 230, y: 240, radius: 35, intensity: 0.75, label: "Secondary Chlorosis" }
       ];
+    }
+
+    // If client computed custom pixel scan points from an uploaded leaf, use those!
+    if (req.body.heatmapPoints && req.body.heatmapPoints.length > 0) {
+      heatmapPoints = req.body.heatmapPoints;
+    }
+    if (typeof req.body.severityScore === "number") {
+      severity = req.body.severityScore;
+    }
+    if (typeof req.body.confidence === "number") {
+      confidence = req.body.confidence / 100;
     }
 
     const severityCategory = severity === 0 ? "Healthy" : severity < 25 ? "Mild" : severity < 50 ? "Moderate" : "Severe";

@@ -176,37 +176,85 @@ function handleMockRoute(rawUrl, init) {
   // 4. DIAGNOSE
   if (path === "/api/diagnose" && method === "POST") {
     const sampleId = body.sampleId || "";
+    const cropHint = (body.cropHint || "").toLowerCase();
     let matched = null;
-    let confidence = 95;
+    let confidence = 96;
     let severity = 38;
+    let defaultPoints = [];
 
-    if (sampleId.includes("cotton")) {
+    if (sampleId.includes("cotton") || cropHint.includes("cotton")) {
       matched = cropsDiseasesData.find(d => d.id === "cotton-pink-bollworm") || cropsDiseasesData[1];
       confidence = 94;
       severity = 48;
-    } else if (sampleId.includes("rice")) {
+      defaultPoints = [
+        { x: 270, y: 275, radius: 38, intensity: 0.95, label: "Borehole & Frass Entry" },
+        { x: 260, y: 255, radius: 30, intensity: 0.8, label: "Larval Feeding Zone" },
+        { x: 110, y: 180, radius: 25, intensity: 0.6, label: "Leaf Margin Chew" }
+      ];
+    } else if (sampleId.includes("rice") || cropHint.includes("rice") || cropHint.includes("paddy")) {
       matched = cropsDiseasesData.find(d => d.id === "rice-blast") || cropsDiseasesData[2];
       confidence = 96;
       severity = 42;
-    } else if (sampleId.includes("potato")) {
+      defaultPoints = [
+        { x: 178, y: 150, radius: 40, intensity: 0.92, label: "Diamond Blast Lesion" },
+        { x: 195, y: 230, radius: 35, intensity: 0.88, label: "Secondary Fungal Spot" },
+        { x: 170, y: 280, radius: 25, intensity: 0.7, label: "Foliar Necrosis" }
+      ];
+    } else if (sampleId.includes("potato") || cropHint.includes("potato")) {
       matched = cropsDiseasesData.find(d => d.id === "potato-late-blight") || cropsDiseasesData[3];
       confidence = 97;
       severity = 62;
+      defaultPoints = [
+        { x: 175, y: 110, radius: 65, intensity: 0.95, label: "Phytophthora Water-Soaked Lesion" },
+        { x: 160, y: 145, radius: 40, intensity: 0.85, label: "White Mold Zone" }
+      ];
+    } else if (sampleId.includes("chilli") || cropHint.includes("chilli") || cropHint.includes("mirchi")) {
+      matched = cropsDiseasesData.find(d => d.id === "chilli-leaf-curl") || cropsDiseasesData[4] || cropsDiseasesData[0];
+      confidence = 95;
+      severity = 46;
+      defaultPoints = [
+        { x: 185, y: 170, radius: 42, intensity: 0.9, label: "Thrips Upward Cup Curling" },
+        { x: 230, y: 220, radius: 38, intensity: 0.85, label: "Mite Puckering Zone" }
+      ];
     } else if (sampleId.includes("healthy")) {
-      matched = cropsDiseasesData.find(d => d.id === "healthy-leaf") || cropsDiseasesData[4];
+      matched = cropsDiseasesData.find(d => d.id === "healthy-crop" || d.id === "healthy-leaf") || cropsDiseasesData[ cropsDiseasesData.length - 1 ];
       confidence = 99;
       severity = 0;
+      defaultPoints = [];
     } else {
       matched = cropsDiseasesData.find(d => d.id === "tomato-early-blight") || cropsDiseasesData[0];
+      defaultPoints = [
+        { x: 150, y: 210, radius: 45, intensity: 0.9, label: "Concentric Alternaria Necrosis" },
+        { x: 240, y: 250, radius: 52, intensity: 0.85, label: "Target Spot Lesion" },
+        { x: 170, y: 275, radius: 24, intensity: 0.65, label: "Chlorotic Margin" }
+      ];
     }
+
+    // If client computed custom pixel scan points from an uploaded leaf, use those!
+    const finalPoints = (body.heatmapPoints && body.heatmapPoints.length > 0)
+      ? body.heatmapPoints
+      : defaultPoints;
+
+    const finalSeverity = (typeof body.severityScore === "number")
+      ? body.severityScore
+      : severity;
+
+    const severityCategory = finalSeverity === 0 ? "Healthy" : finalSeverity < 25 ? "Mild" : finalSeverity < 50 ? "Moderate" : "Severe";
 
     return makeJsonResponse({
       success: true,
       diagnosis: {
         ...matched,
-        confidence,
-        severityScore: severity,
-        detectedAt: new Date().toISOString()
+        confidence: body.confidence || confidence,
+        severityScore: finalSeverity,
+        severityCategory,
+        heatmapPoints: finalPoints,
+        detectedAt: new Date().toISOString(),
+        summaryVoiceText: {
+          en: `Identified ${matched.diseaseName} on ${matched.crop} with ${confidence}% confidence. Severity is ${severityCategory} (${finalSeverity}% foliage affected). Recommended organic treatment: ${matched.organicRemedies?.[0]?.name}.`,
+          te: `గుర్తింపు: ${matched.cropTe || matched.crop} పై ${matched.regionalNames?.te || matched.diseaseName} ప్రభావం ఉంది. తీవ్రత: ${severityCategory} (${finalSeverity}% ఆకులు దెబ్బతిన్నాయి). సేంద్రీయ పరిష్కారం: ${matched.organicRemedies?.[0]?.nameTe || matched.organicRemedies?.[0]?.name}.`,
+          hi: `पहचान: ${matched.cropHi || matched.crop} पर ${matched.regionalNames?.hi || matched.diseaseName}। गंभीरता: ${severityCategory} (${finalSeverity}%)। अनुशंसित उपाय: ${matched.organicRemedies?.[0]?.nameHi || matched.organicRemedies?.[0]?.name}।`
+        }
       }
     });
   }

@@ -25,3 +25,8 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# Local helper scripts
+test_page.cjs
+push_repo.ps1
+strip_bom.cjs
