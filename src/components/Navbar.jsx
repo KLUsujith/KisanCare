@@ -22,7 +22,8 @@ import {
   ShieldCheck,
   Menu,
   X,
-  Film
+  Film,
+  LayoutDashboard
 } from "lucide-react";
 
 export default function Navbar() {
@@ -54,6 +55,7 @@ export default function Navbar() {
   const currentLangObj = languages.find(l => l.code === language) || languages[0];
 
   const navItems = [
+    { id: "dashboard", label: "Dashboard (డాష్‌బోర్డ్)", icon: LayoutDashboard, color: "text-amber-400" },
     { id: "crop-care", label: "Crop Doctor (డాక్టర్)", icon: Sprout, color: "text-emerald-500" },
     { id: "recommendation", label: "Crop Advisory (సిఫార్సు)", icon: MapPin, color: "text-blue-500" },
     { id: "income", label: "Income Estimator (ఆదాయం)", icon: Coins, color: "text-amber-500" },
@@ -89,7 +91,7 @@ export default function Navbar() {
           
           {/* Logo & Brand */}
           <div 
-            onClick={() => setActiveTab("crop-care")} 
+            onClick={() => setActiveTab(user?.role === "admin" ? "admin" : "dashboard")} 
             className="flex items-center space-x-2 cursor-pointer select-none"
           >
             <div className="bg-emerald-500 p-2 rounded-2xl text-white shadow-inner flex items-center justify-center">
@@ -132,9 +134,9 @@ export default function Navbar() {
                   </div>
                 ) : (
                   <div 
-                    onClick={() => setActiveTab("myfarm")}
+                    onClick={() => setActiveTab("dashboard")}
                     className="cursor-pointer flex items-center space-x-1.5 mr-2"
-                    title="My Farm Profile"
+                    title="Farmer Professional Dashboard"
                   >
                     <UserCheck className="w-3.5 h-3.5 text-emerald-400" />
                     <span className="font-extrabold text-white truncate max-w-[110px] sm:max-w-[150px]">

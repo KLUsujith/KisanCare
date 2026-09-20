@@ -14,6 +14,7 @@ import AdminPanel from "./components/AdminPanel.jsx";
 import VoiceAssistant from "./components/VoiceAssistant.jsx";
 import LoginModal from "./components/LoginModal.jsx";
 import DemoVideoModal from "./components/DemoVideoModal.jsx";
+import FarmerDashboard from "./components/FarmerDashboard.jsx";
 import { PhoneCall, ShieldCheck, Sprout } from "lucide-react";
 
 function MainContent() {
@@ -44,6 +45,7 @@ function MainContent() {
 
         {/* Primary Tab View Selector */}
         <main>
+          {activeTab === "dashboard" && <FarmerDashboard />}
           {activeTab === "crop-care" && <CropDoctor />}
           {activeTab === "recommendation" && <CropRecommendation />}
           {activeTab === "income" && <IncomeEstimator />}

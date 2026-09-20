@@ -62,7 +62,7 @@ export default function LoginModal({ isOpen, onClose }) {
       const data = await res.json();
       if (data.success) {
         login(data.user);
-        setActiveTab("myfarm");
+        setActiveTab("dashboard");
         showToast(`రైతు లాగిన్ విజయవంతమైంది: ${data.user.name} (${data.user.acresOwned} ఎకరాలు)`, "success");
         onClose();
       } else {
@@ -83,7 +83,7 @@ export default function LoginModal({ isOpen, onClose }) {
         language: "te"
       };
       login(localFarmer);
-      setActiveTab("myfarm");
+      setActiveTab("dashboard");
       showToast(`Welcome, ${localFarmer.name}!`, "success");
       onClose();
     }
@@ -106,7 +106,7 @@ export default function LoginModal({ isOpen, onClose }) {
       const data = await res.json();
       if (data.success) {
         login(data.user);
-        setActiveTab("myfarm");
+        setActiveTab("dashboard");
         showToast(`ఖాతా విజయవంతంగా సృష్టించబడింది! Welcome ${data.user.name}`, "success");
         onClose();
       }
@@ -124,7 +124,7 @@ export default function LoginModal({ isOpen, onClose }) {
         language: regData.preferredLanguage
       };
       login(localFarmer);
-      setActiveTab("myfarm");
+      setActiveTab("dashboard");
       showToast(`Account created for ${localFarmer.name}!`, "success");
       onClose();
     }
