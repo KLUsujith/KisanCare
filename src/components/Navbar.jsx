@@ -23,8 +23,7 @@ import {
   Menu,
   X,
   Film,
-  LayoutDashboard,
-  Download
+  LayoutDashboard
 } from "lucide-react";
 
 export default function Navbar() {
@@ -211,17 +210,6 @@ export default function Navbar() {
               <span className="hidden sm:inline">డెమో వీడియో / Demo</span>
             </button>
 
-            {/* Download Project Source Code ZIP */}
-            <a
-              href="./KisanCare-SourceCode.zip"
-              download="KisanCare-SourceCode.zip"
-              className="bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs px-2.5 py-1.5 rounded-xl shadow transition flex items-center gap-1.5 cursor-pointer text-decoration-none"
-              title="Download Complete Project Source Code (.ZIP)"
-            >
-              <Download className="w-3.5 h-3.5 text-white" />
-              <span className="hidden lg:inline">డౌన్‌లోడ్ / Download ZIP</span>
-            </a>
-
             {/* Online / Offline Simulator Toggle */}
             <button
               onClick={() => {
@@ -338,16 +326,6 @@ export default function Navbar() {
               <span>Admin Dashboard (అడ్మిన్ పోర్టల్)</span>
             </button>
           )}
-
-          {/* Download Project Source Code ZIP */}
-          <a
-            href="./KisanCare-SourceCode.zip"
-            download="KisanCare-SourceCode.zip"
-            className="w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold flex items-center space-x-2.5 bg-emerald-700 text-white hover:bg-emerald-600 border border-emerald-500/40 mt-2"
-          >
-            <Download className="w-4 h-4 text-white" />
-            <span>డౌన్‌లోడ్ ప్రాజెక్ట్ / Download Source Code (.ZIP)</span>
-          </a>
         </div>
       )}
 
