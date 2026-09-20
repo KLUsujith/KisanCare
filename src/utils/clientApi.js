@@ -270,40 +270,104 @@ function handleMockRoute(rawUrl, init) {
 
     const mandiRecord = mandiPricesData.find(m => m.crop.toLowerCase().includes(cropName.toLowerCase())) || mandiPricesData[0];
 
-    const modalPrice = body.manualSellingPrice ? Number(body.manualSellingPrice) : mandiRecord.modalPriceINR;
-    const baseYield = body.manualYieldPerAcre ? Number(body.manualYieldPerAcre) : cropData.avgYieldPerAcreQuintals;
-    const baseCostPerAcre = body.manualInputCostPerAcre ? Number(body.manualInputCostPerAcre) : cropData.cultivationCostPerAcre;
+    const basePricePerQtl = Number(body.manualSellingPrice) || mandiRecord.modalPrice || mandiRecord.modalPriceINR || 2200;
+    const baseYieldPerAcre = Number(body.manualYieldPerAcre) || cropData.avgYieldPerAcreQuintals || 20;
+    const baseCostPerAcre = Number(body.manualInputCostPerAcre) || cropData.cultivationCostPerAcre || 30000;
 
-    const totalInputCost = Math.round(baseCostPerAcre * landAcres);
+    const totalCost = Math.round(baseCostPerAcre * landAcres);
 
-    const calcScenario = (yieldMultiplier, priceMultiplier) => {
-      const yieldPerAcre = Math.round((baseYield * yieldMultiplier) * 10) / 10;
-      const totalYieldQuintals = Math.round(yieldPerAcre * landAcres);
-      const pricePerQuintal = Math.round(modalPrice * priceMultiplier);
-      const grossRevenue = Math.round(totalYieldQuintals * pricePerQuintal);
-      const netIncome = Math.max(0, grossRevenue - totalInputCost);
-      const roiPercent = Math.round((netIncome / (totalInputCost || 1)) * 100);
-      return { yieldPerAcreQuintals: yieldPerAcre, totalYieldQuintals, pricePerQuintalINR: pricePerQuintal, grossRevenue, inputCostTotal: totalInputCost, estimatedNetIncome: netIncome, roiPercent };
+    const breakdown = {
+      seeds: Math.round(totalCost * 0.12),
+      landPreparation: Math.round(totalCost * 0.15),
+      fertilizersAndManure: Math.round(totalCost * 0.25),
+      plantProtectionSprays: Math.round(totalCost * 0.20),
+      irrigationAndFuel: Math.round(totalCost * 0.10),
+      harvestingAndLabor: Math.round(totalCost * 0.18)
     };
+
+    // SCENARIO 1: Expected Scenario
+    const expectedYieldTotal = Math.round(baseYieldPerAcre * landAcres);
+    const expectedGrossRevenue = Math.round(expectedYieldTotal * basePricePerQtl);
+    const expectedNetIncome = expectedGrossRevenue - totalCost;
+
+    // SCENARIO 2: Low Scenario (-25% yield, -15% price)
+    const lowYieldPerAcre = +(baseYieldPerAcre * 0.75).toFixed(1);
+    const lowPricePerQtl = Math.round(basePricePerQtl * 0.85);
+    const lowYieldTotal = Math.round(lowYieldPerAcre * landAcres);
+    const lowGrossRevenue = Math.round(lowYieldTotal * lowPricePerQtl);
+    const lowNetIncome = lowGrossRevenue - totalCost;
+
+    // SCENARIO 3: High Scenario (+20% yield, +15% price)
+    const highYieldPerAcre = +(baseYieldPerAcre * 1.20).toFixed(1);
+    const highPricePerQtl = Math.round(basePricePerQtl * 1.15);
+    const highYieldTotal = Math.round(highYieldPerAcre * landAcres);
+    const highGrossRevenue = Math.round(highYieldTotal * highPricePerQtl);
+    const highNetIncome = highGrossRevenue - totalCost;
+
+    const directMarketCommissionBonus = Math.round(expectedGrossRevenue * 0.08);
 
     return makeJsonResponse({
       success: true,
       crop: cropData.crop,
+      cropHi: cropData.cropHi || cropData.crop,
+      cropTe: cropData.cropTe || cropData.crop,
       variety: cropData.varietyRecommended,
       acres: landAcres,
       district: districtName,
-      scenarios: {
-        low: calcScenario(0.75, 0.85),
-        expected: calcScenario(1.0, 1.0),
-        high: calcScenario(1.25, 1.18)
+      benchmarkMandi: mandiRecord.mandiName ? `${mandiRecord.mandiName} (₹${basePricePerQtl}/Qtl)` : "APMC Benchmark",
+      parametersUsed: {
+        sellingPricePerQtl: basePricePerQtl,
+        yieldPerAcre: baseYieldPerAcre,
+        inputCostPerAcre: baseCostPerAcre,
+        totalCultivationCost: totalCost,
+        isManualOverridden: Boolean(body.manualSellingPrice || body.manualYieldPerAcre || body.manualInputCostPerAcre)
       },
-      mspBenchmark: mandiRecord.mspBenchmarkINR || 2275,
-      costBreakdown: {
-        seedsAndNursery: Math.round(totalInputCost * 0.22),
-        fertilizersAndBio: Math.round(totalInputCost * 0.28),
-        irrigationAndElectricity: Math.round(totalInputCost * 0.15),
-        laborAndHarvest: Math.round(totalInputCost * 0.35)
-      }
+      costBreakdown: breakdown,
+      scenarios: {
+        low: {
+          scenarioName: "Low Income (Adverse Climate / Low Mandi Rate)",
+          scenarioNameTe: "తక్కువ రాబడి (ప్రతికూల వాతావరణం / ధరల పతనం)",
+          yieldPerAcre: lowYieldPerAcre,
+          totalYieldQuintals: lowYieldTotal,
+          sellingPricePerQtl: lowPricePerQtl,
+          grossRevenue: lowGrossRevenue,
+          cultivationCost: totalCost,
+          estimatedNetIncome: lowNetIncome,
+          roiPercent: Math.round((lowNetIncome / (totalCost || 1)) * 100),
+          status: lowNetIncome >= 0 ? "Modest Profit" : "Risk of Loss"
+        },
+        expected: {
+          scenarioName: "Expected Income (Normal Season & Modal Price)",
+          scenarioNameTe: "సాధారణ ఆశించిన రాబడి (సగటు మార్కెట్ ధర)",
+          yieldPerAcre: baseYieldPerAcre,
+          totalYieldQuintals: expectedYieldTotal,
+          sellingPricePerQtl: basePricePerQtl,
+          grossRevenue: expectedGrossRevenue,
+          cultivationCost: totalCost,
+          estimatedNetIncome: expectedNetIncome,
+          roiPercent: Math.round((expectedNetIncome / (totalCost || 1)) * 100),
+          status: "Profitable"
+        },
+        high: {
+          scenarioName: "High Income (Optimal Season & Premium Quality)",
+          scenarioNameTe: "అధిక రాబడి (అనుకూల వాతావరణం & నాణ్యమైన పంట)",
+          yieldPerAcre: highYieldPerAcre,
+          totalYieldQuintals: highYieldTotal,
+          sellingPricePerQtl: highPricePerQtl,
+          grossRevenue: highGrossRevenue,
+          cultivationCost: totalCost,
+          estimatedNetIncome: highNetIncome,
+          roiPercent: Math.round((highNetIncome / (totalCost || 1)) * 100),
+          status: "High Profit"
+        }
+      },
+      directMarketBonus: {
+        savedCommissionINR: directMarketCommissionBonus,
+        totalNetIncomeWithKisanCare: expectedNetIncome + directMarketCommissionBonus,
+        description: "Direct sale through KisanCare eliminates 6-10% Arhatiya brokerage, retaining additional cash directly in your bank account."
+      },
+      transparencyFormula: `Gross Revenue = (Yield per Acre [${baseYieldPerAcre} Qtl] × Acres [${landAcres}] × Mandi Price [₹${basePricePerQtl}]) = ₹${expectedGrossRevenue}. Net Income = Gross Revenue [₹${expectedGrossRevenue}] - Total Input Costs [₹${totalCost}] = ₹${expectedNetIncome}.`,
+      disclaimer: "DISCLAIMER: These calculations represent statistical scenarios and DO NOT guarantee actual income. Weather fluctuations, market arrivals, crop quality, and timing of sale affect actual earnings."
     });
   }
 
@@ -315,25 +379,61 @@ function handleMockRoute(rawUrl, init) {
     }
     const acresNum = Number(query.acres) || 1;
     const results = seeds.map(s => {
-      let multiplier = 2;
-      if (s.id.includes("tomato") || s.id.includes("onion")) multiplier = 6;
-      else if (s.id.includes("rice") || s.id.includes("wheat")) multiplier = 1;
-      else if (s.id.includes("potato")) multiplier = 12;
+      let packsNeeded = 1;
+      const sid = (s.id || "").toLowerCase();
+      if (sid.includes("tomato") || sid.includes("onion")) packsNeeded = Math.ceil(acresNum * 6);
+      else if (sid.includes("rice") || sid.includes("wheat")) packsNeeded = Math.ceil(acresNum * 1);
+      else if (sid.includes("cotton") || sid.includes("chilli")) packsNeeded = Math.ceil(acresNum * 2);
+      else if (sid.includes("potato")) packsNeeded = Math.ceil(acresNum * 12);
+      else packsNeeded = Math.ceil(acresNum * 2);
+
+      const unitPrice = s.subsidizedPriceINR || s.pricePerPackINR || 450;
       return {
         ...s,
-        recommendedPacksForAcres: Math.ceil(acresNum * multiplier),
-        estimatedSeedCostINR: Math.ceil(acresNum * multiplier) * s.subsidizedPriceINR
+        recommendedPacksForAcres: packsNeeded,
+        calculatedPacksForAcres: packsNeeded,
+        estimatedSeedCostINR: packsNeeded * unitPrice,
+        totalAcreCostINR: packsNeeded * unitPrice
       };
     });
-    return makeJsonResponse({ success: true, count: results.length, catalog: results });
+    return makeJsonResponse({
+      success: true,
+      acres: acresNum,
+      count: results.length,
+      seeds: results,
+      catalog: results
+    });
   }
 
   // 9. SEEDS ORDER
   if (path === "/api/seeds/order" && method === "POST") {
-    const orderId = "ORD-" + Math.floor(100000 + Math.random() * 900000);
+    const orderId = `KS-SEED-${Math.floor(100000 + Math.random() * 900000)}`;
+    const seeds = activeSeeds;
+    const seed = seeds.find(s => s.id === body.seedId) || seeds[0] || { crop: "Chilli", variety: "Teja Super" };
+    const qty = Number(body.packsCount) || 1;
+    const unitPrice = seed.subsidizedPriceINR || seed.pricePerPackINR || 450;
+    const newOrder = {
+      orderId,
+      seedName: `${seed.crop} (${seed.variety})`,
+      certifyingAgency: seed.certifyingAgency || "NSC Certified",
+      quantityPacks: qty,
+      packSize: seed.packSize || "50g Pack",
+      totalPriceINR: unitPrice * qty,
+      subsidyApplied: seed.subsidyAvailable !== false,
+      farmerName: body.farmerName || "Farmer",
+      phone: body.phone || "9876543210",
+      deliveryAddress: body.deliveryAddress || "Gram Panchayat Krishi Seva Kendra",
+      acresTargeted: body.acres || 1,
+      paymentMode: body.paymentMode || "Cash on Delivery / KCC",
+      orderDate: new Date().toISOString(),
+      status: "Confirmed - Dispatched from Seed Hub",
+      expectedDelivery: "Within 48 Hours to Village Krishi Kendra"
+    };
+
     return makeJsonResponse({
       success: true,
       orderId,
+      order: newOrder,
       message: `విత్తనాల ఆర్డర్ విజయవంతంగా నమోదైంది! Order ${orderId} confirmed.`
     });
   }

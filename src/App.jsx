@@ -15,7 +15,7 @@ import VoiceAssistant from "./components/VoiceAssistant.jsx";
 import LoginModal from "./components/LoginModal.jsx";
 import DemoVideoModal from "./components/DemoVideoModal.jsx";
 import FarmerDashboard from "./components/FarmerDashboard.jsx";
-import { PhoneCall, ShieldCheck, Sprout } from "lucide-react";
+import { PhoneCall, ShieldCheck, Sprout, Download, ExternalLink } from "lucide-react";
 
 function MainContent() {
   const { activeTab, setActiveTab, toastMessage, language, showLoginModal, setShowLoginModal, showDemoVideo, setShowDemoVideo, user } = useApp();
@@ -134,11 +134,38 @@ function MainContent() {
 
           <div>
             <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-2">
-              Scientific Standards & Disclaimer
+              Project Source & Downloads
             </h4>
-            <p className="text-[11px] text-slate-400 leading-relaxed">
-              Advisories comply with Indian Council of Agricultural Research (ICAR) & ANGRAU protocols. Calculations are estimated historical scenarios and should be confirmed with your local Mandal Agricultural Officer (MAO).
-            </p>
+            <div className="space-y-2 text-[11px]">
+              <a
+                href="./KisanCare-SourceCode.zip"
+                download="KisanCare-SourceCode.zip"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-700 hover:bg-emerald-600 text-white font-bold rounded-lg transition"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>Download Source Code (.ZIP)</span>
+              </a>
+              <div className="flex items-center gap-2 pt-1">
+                <a
+                  href="https://github.com/KLUsujith/KisanCare"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-emerald-400 hover:underline flex items-center gap-1"
+                >
+                  <ExternalLink className="w-3 h-3" />
+                  <span>GitHub Repository</span>
+                </a>
+                <span>•</span>
+                <a
+                  href="https://github.com/KLUsujith/KisanCare/archive/refs/heads/main.zip"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-slate-300 hover:underline"
+                >
+                  <span>GitHub ZIP</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>

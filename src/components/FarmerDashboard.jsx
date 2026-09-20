@@ -26,7 +26,8 @@ import {
   Award,
   DollarSign,
   Layers,
-  ChevronRight
+  ChevronRight,
+  Download
 } from "lucide-react";
 
 export default function FarmerDashboard() {
@@ -127,6 +128,16 @@ export default function FarmerDashboard() {
 
           {/* Right Action Buttons */}
           <div className="flex flex-wrap items-center gap-2.5">
+            <a
+              href="./KisanCare-SourceCode.zip"
+              download="KisanCare-SourceCode.zip"
+              className="px-4 py-2.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs rounded-xl shadow-md transition flex items-center gap-1.5"
+              title="Download Complete Source Code ZIP"
+            >
+              <Download className="w-4 h-4 text-slate-950" />
+              <span>ప్రాజెక్ట్ డౌన్‌లోడ్ / Download ZIP</span>
+            </a>
+
             <button
               onClick={handleListenSummary}
               className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs rounded-xl shadow-md transition flex items-center gap-2 border border-emerald-400/40"

@@ -57,7 +57,7 @@ export default function IncomeEstimator() {
         })
       });
       const data = await res.json();
-      if (data.success) {
+      if (data && data.success && data.scenarios) {
         setScenarioData(data);
       }
     } catch (err) {
@@ -72,11 +72,14 @@ export default function IncomeEstimator() {
   }, [crop, acres, manualPrice, manualYield, manualCost]);
 
   const handleListenScenarios = () => {
-    if (!scenarioData) return;
+    if (!scenarioData || !scenarioData.scenarios) return;
     const s = scenarioData.scenarios;
+    const expNet = (s.expected?.estimatedNetIncome ?? 0).toLocaleString();
+    const lowNet = (s.low?.estimatedNetIncome ?? 0).toLocaleString();
+    const highNet = (s.high?.estimatedNetIncome ?? 0).toLocaleString();
     const text = language === "te"
-      ? `${crop} పంట కోసం ${acres} ఎకరాలలో ఆశించిన నికర రాబడి సుమారుగా ${s.expected.estimatedNetIncome} రూపాయలు. ప్రతికూల వాతావరణంలో తక్కువ రాబడి ${s.low.estimatedNetIncome} రూపాయలు, మరియు అనుకూల వాతావరణంలో అధిక రాబడి ${s.high.estimatedNetIncome} రూపాయలు.`
-      : `For ${acres} acres of ${crop}: Expected net profit is approximately ₹${s.expected.estimatedNetIncome.toLocaleString()}. Under adverse conditions, low scenario yields ₹${s.low.estimatedNetIncome.toLocaleString()}, and under optimal season, high scenario yields ₹${s.high.estimatedNetIncome.toLocaleString()}.`;
+      ? `${crop} పంట కోసం ${acres} ఎకరాలలో ఆశించిన నికర రాబడి సుమారుగా ${expNet} రూపాయలు. ప్రతికూల వాతావరణంలో తక్కువ రాబడి ${lowNet} రూపాయలు, మరియు అనుకూల వాతావరణంలో అధిక రాబడి ${highNet} రూపాయలు.`
+      : `For ${acres} acres of ${crop}: Expected net profit is approximately ₹${expNet}. Under adverse conditions, low scenario yields ₹${lowNet}, and under optimal season, high scenario yields ₹${highNet}.`;
     playVoice(text);
   };
 
@@ -239,7 +242,7 @@ export default function IncomeEstimator() {
               Projected Scenarios for {acres} Acres of {crop}
             </h2>
             <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-1 rounded-lg border border-emerald-200">
-              Benchmark: {scenarioData.benchmarkMandi}
+              Benchmark: {scenarioData.benchmarkMandi || "APMC Market Benchmark"}
             </span>
           </div>
 
@@ -257,35 +260,35 @@ export default function IncomeEstimator() {
                   <span>Low Income Scenario</span>
                 </div>
                 <div className="text-[11px] text-slate-500">
-                  {scenarioData.scenarios.low.scenarioNameTe}
+                  {scenarioData.scenarios?.low?.scenarioNameTe || "తక్కువ రాబడి (ప్రతికూల వాతావరణం)"}
                 </div>
 
                 <div className="mt-4 p-3 bg-red-50/50 rounded-xl border border-red-100 space-y-1">
                   <div className="text-xs text-slate-500">Estimated Net Profit:</div>
                   <div className="text-2xl font-black text-red-700">
-                    ₹{scenarioData.scenarios.low.estimatedNetIncome.toLocaleString()}
+                    ₹{(scenarioData.scenarios?.low?.estimatedNetIncome ?? 0).toLocaleString()}
                   </div>
                   <div className="text-[11px] text-red-800 font-bold">
-                    ROI: {scenarioData.scenarios.low.roiPercent}%
+                    ROI: {scenarioData.scenarios?.low?.roiPercent ?? 0}%
                   </div>
                 </div>
 
                 <div className="mt-3 space-y-1.5 text-xs text-slate-600">
                   <div className="flex justify-between">
                     <span>Yield for {acres} Ac:</span>
-                    <strong className="text-slate-800">{scenarioData.scenarios.low.totalYieldQuintals} Qtl</strong>
+                    <strong className="text-slate-800">{scenarioData.scenarios?.low?.totalYieldQuintals ?? 0} Qtl</strong>
                   </div>
                   <div className="flex justify-between">
                     <span>Mandi Sale Price:</span>
-                    <strong className="text-slate-800">₹{scenarioData.scenarios.low.sellingPricePerQtl} / Qtl</strong>
+                    <strong className="text-slate-800">₹{scenarioData.scenarios?.low?.sellingPricePerQtl ?? 0} / Qtl</strong>
                   </div>
                   <div className="flex justify-between">
                     <span>Gross Revenue:</span>
-                    <strong className="text-slate-800">₹{scenarioData.scenarios.low.grossRevenue.toLocaleString()}</strong>
+                    <strong className="text-slate-800">₹{(scenarioData.scenarios?.low?.grossRevenue ?? 0).toLocaleString()}</strong>
                   </div>
                   <div className="flex justify-between text-slate-400">
                     <span>Total Cultivation Cost:</span>
-                    <span>- ₹{scenarioData.scenarios.low.cultivationCost.toLocaleString()}</span>
+                    <span>- ₹{(scenarioData.scenarios?.low?.cultivationCost ?? 0).toLocaleString()}</span>
                   </div>
                 </div>
               </div>
@@ -303,35 +306,35 @@ export default function IncomeEstimator() {
                   <span>Expected Normal Scenario</span>
                 </div>
                 <div className="text-[11px] text-slate-500">
-                  {scenarioData.scenarios.expected.scenarioNameTe}
+                  {scenarioData.scenarios?.expected?.scenarioNameTe || "సాధారణ ఆశించిన రాబడి"}
                 </div>
 
                 <div className="mt-4 p-3 bg-emerald-50 rounded-xl border border-emerald-200 space-y-1">
                   <div className="text-xs text-emerald-800 font-bold">Estimated Net Profit:</div>
                   <div className="text-3xl font-black text-emerald-700">
-                    ₹{scenarioData.scenarios.expected.estimatedNetIncome.toLocaleString()}
+                    ₹{(scenarioData.scenarios?.expected?.estimatedNetIncome ?? 0).toLocaleString()}
                   </div>
                   <div className="text-xs text-emerald-900 font-bold">
-                    Net Return on Investment (ROI): {scenarioData.scenarios.expected.roiPercent}%
+                    Net Return on Investment (ROI): {scenarioData.scenarios?.expected?.roiPercent ?? 0}%
                   </div>
                 </div>
 
                 <div className="mt-3 space-y-1.5 text-xs text-slate-700 font-medium">
                   <div className="flex justify-between">
                     <span>Expected Yield for {acres} Ac:</span>
-                    <strong className="text-slate-900">{scenarioData.scenarios.expected.totalYieldQuintals} Qtl</strong>
+                    <strong className="text-slate-900">{scenarioData.scenarios?.expected?.totalYieldQuintals ?? 0} Qtl</strong>
                   </div>
                   <div className="flex justify-between">
                     <span>Mandi Sale Price:</span>
-                    <strong className="text-slate-900">₹{scenarioData.scenarios.expected.sellingPricePerQtl} / Qtl</strong>
+                    <strong className="text-slate-900">₹{scenarioData.scenarios?.expected?.sellingPricePerQtl ?? 0} / Qtl</strong>
                   </div>
                   <div className="flex justify-between">
                     <span>Gross Revenue:</span>
-                    <strong className="text-slate-900">₹{scenarioData.scenarios.expected.grossRevenue.toLocaleString()}</strong>
+                    <strong className="text-slate-900">₹{(scenarioData.scenarios?.expected?.grossRevenue ?? 0).toLocaleString()}</strong>
                   </div>
                   <div className="flex justify-between text-slate-500">
                     <span>Total Cultivation Cost:</span>
-                    <span>- ₹{scenarioData.scenarios.expected.cultivationCost.toLocaleString()}</span>
+                    <span>- ₹{(scenarioData.scenarios?.expected?.cultivationCost ?? 0).toLocaleString()}</span>
                   </div>
                 </div>
               </div>
@@ -349,35 +352,35 @@ export default function IncomeEstimator() {
                   <span>High Income Scenario</span>
                 </div>
                 <div className="text-[11px] text-slate-500">
-                  {scenarioData.scenarios.high.scenarioNameTe}
+                  {scenarioData.scenarios?.high?.scenarioNameTe || "అధిక రాబడి (అనుకూల వాతావరణం)"}
                 </div>
 
                 <div className="mt-4 p-3 bg-blue-50/50 rounded-xl border border-blue-100 space-y-1">
                   <div className="text-xs text-slate-500">Estimated Net Profit:</div>
                   <div className="text-2xl font-black text-blue-700">
-                    ₹{scenarioData.scenarios.high.estimatedNetIncome.toLocaleString()}
+                    ₹{(scenarioData.scenarios?.high?.estimatedNetIncome ?? 0).toLocaleString()}
                   </div>
                   <div className="text-[11px] text-blue-800 font-bold">
-                    ROI: {scenarioData.scenarios.high.roiPercent}%
+                    ROI: {scenarioData.scenarios?.high?.roiPercent ?? 0}%
                   </div>
                 </div>
 
                 <div className="mt-3 space-y-1.5 text-xs text-slate-600">
                   <div className="flex justify-between">
                     <span>High Yield for {acres} Ac:</span>
-                    <strong className="text-slate-800">{scenarioData.scenarios.high.totalYieldQuintals} Qtl</strong>
+                    <strong className="text-slate-800">{scenarioData.scenarios?.high?.totalYieldQuintals ?? 0} Qtl</strong>
                   </div>
                   <div className="flex justify-between">
                     <span>Premium Price:</span>
-                    <strong className="text-slate-800">₹{scenarioData.scenarios.high.sellingPricePerQtl} / Qtl</strong>
+                    <strong className="text-slate-800">₹{scenarioData.scenarios?.high?.sellingPricePerQtl ?? 0} / Qtl</strong>
                   </div>
                   <div className="flex justify-between">
                     <span>Gross Revenue:</span>
-                    <strong className="text-slate-800">₹{scenarioData.scenarios.high.grossRevenue.toLocaleString()}</strong>
+                    <strong className="text-slate-800">₹{(scenarioData.scenarios?.high?.grossRevenue ?? 0).toLocaleString()}</strong>
                   </div>
                   <div className="flex justify-between text-slate-400">
                     <span>Total Cultivation Cost:</span>
-                    <span>- ₹{scenarioData.scenarios.high.cultivationCost.toLocaleString()}</span>
+                    <span>- ₹{(scenarioData.scenarios?.high?.cultivationCost ?? 0).toLocaleString()}</span>
                   </div>
                 </div>
               </div>
@@ -400,27 +403,27 @@ export default function IncomeEstimator() {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-2 text-xs">
               <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100">
                 <span className="text-slate-400 block text-[10px] uppercase font-bold">Certified Seeds</span>
-                <span className="font-extrabold text-slate-800">₹{scenarioData.costBreakdown?.seeds?.toLocaleString()}</span>
+                <span className="font-extrabold text-slate-800">₹{(scenarioData.costBreakdown?.seeds ?? 0).toLocaleString()}</span>
               </div>
               <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100">
                 <span className="text-slate-400 block text-[10px] uppercase font-bold">Land Preparation / Plowing</span>
-                <span className="font-extrabold text-slate-800">₹{scenarioData.costBreakdown?.landPreparation?.toLocaleString()}</span>
+                <span className="font-extrabold text-slate-800">₹{(scenarioData.costBreakdown?.landPreparation ?? 0).toLocaleString()}</span>
               </div>
               <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100">
                 <span className="text-slate-400 block text-[10px] uppercase font-bold">Fertilizers & Organic Manure</span>
-                <span className="font-extrabold text-slate-800">₹{scenarioData.costBreakdown?.fertilizersAndManure?.toLocaleString()}</span>
+                <span className="font-extrabold text-slate-800">₹{(scenarioData.costBreakdown?.fertilizersAndManure ?? 0).toLocaleString()}</span>
               </div>
               <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100">
                 <span className="text-slate-400 block text-[10px] uppercase font-bold">Crop Protection / Sprays</span>
-                <span className="font-extrabold text-slate-800">₹{scenarioData.costBreakdown?.plantProtectionSprays?.toLocaleString()}</span>
+                <span className="font-extrabold text-slate-800">₹{(scenarioData.costBreakdown?.plantProtectionSprays ?? 0).toLocaleString()}</span>
               </div>
               <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100">
                 <span className="text-slate-400 block text-[10px] uppercase font-bold">Irrigation & Power</span>
-                <span className="font-extrabold text-slate-800">₹{scenarioData.costBreakdown?.irrigationAndFuel?.toLocaleString()}</span>
+                <span className="font-extrabold text-slate-800">₹{(scenarioData.costBreakdown?.irrigationAndFuel ?? 0).toLocaleString()}</span>
               </div>
               <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100">
                 <span className="text-slate-400 block text-[10px] uppercase font-bold">Harvesting & Labor</span>
-                <span className="font-extrabold text-slate-800">₹{scenarioData.costBreakdown?.harvestingAndLabor?.toLocaleString()}</span>
+                <span className="font-extrabold text-slate-800">₹{(scenarioData.costBreakdown?.harvestingAndLabor ?? 0).toLocaleString()}</span>
               </div>
             </div>
 
@@ -432,7 +435,7 @@ export default function IncomeEstimator() {
                   KisanCare Direct Market Brokerage Bonus
                 </div>
                 <div className="text-[11px] text-emerald-800 mt-0.5">
-                  Selling directly to verified buyers saves 8% middleman commission, putting an extra <strong>+₹{scenarioData.directMarketBonus.savedCommissionINR.toLocaleString()}</strong> in your pocket!
+                  Selling directly to verified buyers saves 8% middleman commission, putting an extra <strong>+₹{(scenarioData.directMarketBonus?.savedCommissionINR ?? 0).toLocaleString()}</strong> in your pocket!
                 </div>
               </div>
               <button
