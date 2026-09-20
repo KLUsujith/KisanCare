@@ -49,6 +49,15 @@ export default function CropRecommendation() {
     setMandal(mandals[0]);
   };
 
+  useEffect(() => {
+    if (farmProfile?.district && farmProfile.district !== district) {
+      setDistrict(farmProfile.district);
+      const mandals = districtMandalMap[farmProfile.district] || [farmProfile.mandal || "Central Mandal"];
+      setAvailableMandals(mandals);
+      setMandal(farmProfile.mandal || mandals[0]);
+    }
+  }, [farmProfile?.district, farmProfile?.mandal]);
+
   const fetchRecommendations = async () => {
     setLoading(true);
     try {

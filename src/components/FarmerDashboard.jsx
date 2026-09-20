@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useApp } from "../context/AppContext.jsx";
+import LiveLocationWeather from "./LiveLocationWeather.jsx";
 import { 
   LayoutDashboard, 
   Sprout, 
@@ -174,129 +175,69 @@ export default function FarmerDashboard() {
         </div>
       </div>
 
-      {/* 2. WEATHER & SPRAYING RADAR + ACTIVE CROP LIFECYCLE */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-        
-        {/* Weather & Spraying Radar Widget */}
-        <div className="bg-white rounded-3xl p-5 shadow-sm border border-slate-200 flex flex-col justify-between">
-          <div>
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="text-sm font-extrabold text-slate-800 flex items-center gap-2">
-                <Sun className="w-4 h-4 text-amber-500" />
-                <span>వాతావరణం & పిచికారీ సూచన (Weather & Spraying Radar)</span>
-              </h3>
-              <span className="text-[10px] bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded-full">
-                Live Radar
-              </span>
-            </div>
+      {/* 2. LIVE LOCATION & 5-DAY AGRO-METEOROLOGICAL WEATHER FORECAST */}
+      <LiveLocationWeather />
 
-            <div className="flex items-center justify-between p-3.5 bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl border border-amber-200 mb-3">
-              <div className="flex items-center space-x-3">
-                <div className="p-2.5 bg-amber-500 text-white rounded-2xl shadow-sm">
-                  <Sun className="w-6 h-6" />
-                </div>
-                <div>
-                  <span className="text-2xl font-black text-slate-900">29°C</span>
-                  <p className="text-xs text-slate-600 font-semibold">Partly Cloudy • Narsampet</p>
-                </div>
-              </div>
-              <div className="text-right text-xs space-y-0.5 text-slate-600 font-medium">
-                <div>💧 Humidity: <strong>68%</strong></div>
-                <div>💨 Wind: <strong>8 km/h</strong></div>
-                <div>🌧️ Rain Risk: <strong>12%</strong></div>
-              </div>
-            </div>
+      {/* 3. ACTIVE CROP GROWTH STAGE & IRRIGATION SCHEDULE */}
+      <div className="bg-white rounded-3xl p-5 shadow-sm border border-slate-200">
+        <div className="flex items-center justify-between mb-3">
+          <h3 className="text-sm font-extrabold text-slate-800 flex items-center gap-2">
+            <Sprout className="w-4 h-4 text-emerald-600" />
+            <span>పంట ప్రగతి & నిర్వహణ షెడ్యూల్ (Active Crop Growth Stage)</span>
+          </h3>
+          <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">
+            Healthy (ఆరోగ్యకరమైనది)
+          </span>
+        </div>
 
-            {/* Spraying Suitability Badge */}
-            <div className="p-3 bg-emerald-50 rounded-2xl border border-emerald-200 flex items-start gap-2.5">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-              <div className="text-xs">
-                <span className="font-extrabold text-emerald-900 block">
-                  🟢 Spraying Conditions: OPTIMAL (అనుకూలం)
-                </span>
-                <p className="text-slate-600 text-[11px] mt-0.5">
-                  Safe spray window: <strong>6:30 AM – 9:30 AM</strong>. Low wind drift and moderate evaporation index.
-                </p>
-              </div>
-            </div>
+        {/* Progress Bar */}
+        <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 mb-4">
+          <div className="flex items-center justify-between text-xs font-bold text-slate-700 mb-1.5">
+            <span>Vegetative Growth (మొక్క పెరుగుదల దశ)</span>
+            <span className="text-emerald-700">Day 42 of 145 Days (29%)</span>
           </div>
-
-          <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-            <span>3-Day Forecast: Light showers in 48h</span>
-            <button 
-              onClick={() => setActiveTab("crop-care")}
-              className="text-emerald-700 font-bold hover:underline flex items-center gap-1"
-            >
-              <span>Diagnose Foliage</span>
-              <ChevronRight className="w-3.5 h-3.5" />
-            </button>
+          <div className="w-full h-3 bg-slate-200 rounded-full overflow-hidden">
+            <div className="h-full bg-emerald-600 rounded-full" style={{ width: "29%" }}></div>
+          </div>
+          <div className="grid grid-cols-4 text-[10px] text-slate-400 font-semibold mt-2 text-center">
+            <span className="text-emerald-700 font-bold">1. Nursery ✓</span>
+            <span className="text-emerald-700 font-bold">2. Vegetative ◄</span>
+            <span>3. Flowering</span>
+            <span>4. Harvesting</span>
           </div>
         </div>
 
-        {/* Crop Lifecycle & Next Irrigation */}
-        <div className="lg:col-span-2 bg-white rounded-3xl p-5 shadow-sm border border-slate-200 flex flex-col justify-between">
-          <div>
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="text-sm font-extrabold text-slate-800 flex items-center gap-2">
-                <Sprout className="w-4 h-4 text-emerald-600" />
-                <span>పంట ప్రగతి & నిర్వహణ షెడ్యూల్ (Active Crop Growth Stage)</span>
-              </h3>
-              <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">
-                Healthy (ఆరోగ్యకరమైనది)
-              </span>
-            </div>
-
-            {/* Progress Bar */}
-            <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 mb-4">
-              <div className="flex items-center justify-between text-xs font-bold text-slate-700 mb-1.5">
-                <span>Vegetative Growth (మొక్క పెరుగుదల దశ)</span>
-                <span className="text-emerald-700">Day 42 of 145 Days (29%)</span>
-              </div>
-              <div className="w-full h-3 bg-slate-200 rounded-full overflow-hidden">
-                <div className="h-full bg-emerald-600 rounded-full" style={{ width: "29%" }}></div>
-              </div>
-              <div className="grid grid-cols-4 text-[10px] text-slate-400 font-semibold mt-2 text-center">
-                <span className="text-emerald-700 font-bold">1. Nursery ✓</span>
-                <span className="text-emerald-700 font-bold">2. Vegetative ◄</span>
-                <span>3. Flowering</span>
-                <span>4. Harvesting</span>
-              </div>
-            </div>
-
-            {/* Next 3 Scheduled Tasks */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
-              <div className="p-3 bg-emerald-50/70 rounded-2xl border border-emerald-200">
-                <span className="text-[10px] text-emerald-800 font-extrabold uppercase block">💧 Next Irrigation</span>
-                <span className="font-bold text-slate-900 block mt-0.5">Drip Fertigation</span>
-                <span className="text-[11px] text-slate-600">Tomorrow, 7:00 AM (2.5 hrs)</span>
-              </div>
-
-              <div className="p-3 bg-blue-50/70 rounded-2xl border border-blue-200">
-                <span className="text-[10px] text-blue-800 font-extrabold uppercase block">🌿 Nutrition Dose</span>
-                <span className="font-bold text-slate-900 block mt-0.5">19:19:19 + Zinc</span>
-                <span className="text-[11px] text-slate-600">3kg per acre via venturi</span>
-              </div>
-
-              <div className="p-3 bg-amber-50/70 rounded-2xl border border-amber-200">
-                <span className="text-[10px] text-amber-800 font-extrabold uppercase block">🛡️ Pest Preventive</span>
-                <span className="font-bold text-slate-900 block mt-0.5">Yellow Traps (8/Ac)</span>
-                <span className="text-[11px] text-slate-600">Thrips surveillance</span>
-              </div>
-            </div>
+        {/* Next 3 Scheduled Tasks */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
+          <div className="p-3 bg-emerald-50/70 rounded-2xl border border-emerald-200">
+            <span className="text-[10px] text-emerald-800 font-extrabold uppercase block">💧 Next Irrigation</span>
+            <span className="font-bold text-slate-900 block mt-0.5">Drip Fertigation</span>
+            <span className="text-[11px] text-slate-600">Tomorrow, 7:00 AM (2.5 hrs)</span>
           </div>
 
-          <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-            <span className="text-slate-500 font-medium">ANGRAU & ICAR crop protection recommendations</span>
-            <button
-              onClick={() => setActiveTab("crop-care")}
-              className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-sm transition flex items-center gap-1"
-            >
-              <span>Scan Leaf with AI</span>
-              <ArrowRight className="w-3 h-3" />
-            </button>
+          <div className="p-3 bg-blue-50/70 rounded-2xl border border-blue-200">
+            <span className="text-[10px] text-blue-800 font-extrabold uppercase block">🌿 Nutrition Dose</span>
+            <span className="font-bold text-slate-900 block mt-0.5">19:19:19 + Zinc</span>
+            <span className="text-[11px] text-slate-600">3kg per acre via venturi</span>
+          </div>
+
+          <div className="p-3 bg-amber-50/70 rounded-2xl border border-amber-200">
+            <span className="text-[10px] text-amber-800 font-extrabold uppercase block">🛡️ Pest Preventive</span>
+            <span className="font-bold text-slate-900 block mt-0.5">Yellow Traps (8/Ac)</span>
+            <span className="text-[11px] text-slate-600">Thrips surveillance</span>
           </div>
         </div>
 
+        <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+          <span className="text-slate-500 font-medium">ANGRAU & ICAR crop protection recommendations</span>
+          <button
+            onClick={() => setActiveTab("crop-care")}
+            className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-sm transition flex items-center gap-1"
+          >
+            <span>Scan Leaf with AI</span>
+            <ArrowRight className="w-3 h-3" />
+          </button>
+        </div>
       </div>
 
       {/* 3. 3-SCENARIO INCOME MATH & FINANCIAL HEALTH */}

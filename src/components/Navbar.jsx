@@ -200,6 +200,17 @@ export default function Navbar() {
               )}
             </div>
 
+            {/* Live Location & Weather Indicator */}
+            <button
+              onClick={() => setActiveTab("dashboard")}
+              className="hidden lg:flex items-center space-x-1.5 bg-agri-900/90 hover:bg-agri-900 text-xs font-bold px-2.5 py-1.5 rounded-xl border border-agri-700/60 text-emerald-300 transition"
+              title="Click to view Live GPS Location & 5-Day Weather Forecast"
+            >
+              <MapPin className="w-3.5 h-3.5 text-emerald-400" />
+              <span>{farmProfile?.district || "Guntur"}</span>
+              <span className="text-amber-300 font-extrabold">• 29°C ⛅</span>
+            </button>
+
             {/* Watch Demo Video Button */}
             <button
               onClick={() => setShowDemoVideo(true)}
