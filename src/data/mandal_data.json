@@ -1,0 +1,154 @@
+[
+  {
+    "state": "Andhra Pradesh",
+    "stateTe": "ఆంధ్రప్రదేశ్",
+    "district": "Guntur",
+    "districtTe": "గుంటూరు",
+    "mandals": [
+      {
+        "mandal": "Tenali",
+        "mandalTe": "తెనాలి",
+        "soilTypes": ["Deep Black Clayey Soil", "Krishna Alluvial Silt"],
+        "irrigationOptions": ["Canal (Krishna Western Delta)", "Borewell", "Drip"],
+        "suitableCrops": ["Chilli", "Rice / Paddy", "Black Gram", "Turmeric"],
+        "avgRainfall": "890 mm"
+      },
+      {
+        "mandal": "Bapatla",
+        "mandalTe": "బాపట్ల",
+        "soilTypes": ["Coastal Sandy Loam", "Alluvial"],
+        "irrigationOptions": ["Canal", "Borewell"],
+        "suitableCrops": ["Paddy", "Groundnut", "Cashew", "Vegetables"],
+        "avgRainfall": "920 mm"
+      },
+      {
+        "mandal": "Mangalagiri",
+        "mandalTe": "మంగళగిరి",
+        "soilTypes": ["Black Cotton Soil"],
+        "irrigationOptions": ["Borewell", "Drip"],
+        "suitableCrops": ["Cotton", "Chilli", "Tomato", "Maize"],
+        "avgRainfall": "880 mm"
+      },
+      {
+        "mandal": "Sattenapalle",
+        "mandalTe": "సత్తెనపల్లి",
+        "soilTypes": ["Medium Black Soil", "Red Chalkas"],
+        "irrigationOptions": ["Borewell", "Rainfed"],
+        "suitableCrops": ["Cotton", "Chilli", "Red Gram", "Maize"],
+        "avgRainfall": "810 mm"
+      }
+    ]
+  },
+  {
+    "state": "Andhra Pradesh",
+    "stateTe": "ఆంధ్రప్రదేశ్",
+    "district": "Chittoor",
+    "districtTe": "చిత్తూరు",
+    "mandals": [
+      {
+        "mandal": "Madanapalle",
+        "mandalTe": "మదనపల్లె",
+        "soilTypes": ["Red Sandy Loam with Quartz Gravel"],
+        "irrigationOptions": ["Borewell with Drip", "Check-dams"],
+        "suitableCrops": ["Tomato", "Chilli", "Groundnut", "Mulberry"],
+        "avgRainfall": "740 mm"
+      },
+      {
+        "mandal": "Pileru",
+        "mandalTe": "పీలేరు",
+        "soilTypes": ["Red Loamy Soil"],
+        "irrigationOptions": ["Borewell", "Drip"],
+        "suitableCrops": ["Tomato", "Mango", "Groundnut", "Flowers"],
+        "avgRainfall": "760 mm"
+      },
+      {
+        "mandal": "Chandragiri",
+        "mandalTe": "చంద్రగిరి",
+        "soilTypes": ["Mixed Red and Alluvial"],
+        "irrigationOptions": ["Borewell", "Canal"],
+        "suitableCrops": ["Paddy", "Sugarcane", "Groundnut", "Vegetables"],
+        "avgRainfall": "850 mm"
+      }
+    ]
+  },
+  {
+    "state": "Andhra Pradesh",
+    "stateTe": "ఆంధ్రప్రదేశ్",
+    "district": "Kurnool",
+    "districtTe": "కర్నూలు",
+    "mandals": [
+      {
+        "mandal": "Adoni",
+        "mandalTe": "ఆదోని",
+        "soilTypes": ["Deep Black Cotton Soil"],
+        "irrigationOptions": ["Rainfed / Drought-prone", "Borewell"],
+        "suitableCrops": ["Cotton", "Groundnut", "Bengal Gram (Chana)", "Sunflower"],
+        "avgRainfall": "620 mm"
+      },
+      {
+        "mandal": "Nandyal",
+        "mandalTe": "నంద్యాల",
+        "soilTypes": ["Alluvial Black Clay"],
+        "irrigationOptions": ["K-C Canal", "Borewell"],
+        "suitableCrops": ["Rice / Paddy", "Bengal Gram", "Maize", "Banana"],
+        "avgRainfall": "740 mm"
+      }
+    ]
+  },
+  {
+    "state": "Telangana",
+    "stateTe": "తెలంగాణ",
+    "district": "Warangal",
+    "districtTe": "వరంగల్",
+    "mandals": [
+      {
+        "mandal": "Narsampet",
+        "mandalTe": "నర్సంపేట",
+        "soilTypes": ["Red Sandy Loam (Chalkas) with Black Pockets"],
+        "irrigationOptions": ["Pakhal Lake Canal", "Borewell", "Drip"],
+        "suitableCrops": ["Cotton", "Chilli", "Paddy", "Maize"],
+        "avgRainfall": "980 mm"
+      },
+      {
+        "mandal": "Wardhannapet",
+        "mandalTe": "వర్ధన్నపేట",
+        "soilTypes": ["Medium Black Soil"],
+        "irrigationOptions": ["SRSP Canal", "Borewell"],
+        "suitableCrops": ["Cotton", "Chilli", "Turmeric", "Green Gram"],
+        "avgRainfall": "950 mm"
+      },
+      {
+        "mandal": "Parvathagiri",
+        "mandalTe": "పర్వతగిరి",
+        "soilTypes": ["Red Chalkas"],
+        "irrigationOptions": ["Borewell with Sprinklers"],
+        "suitableCrops": ["Maize", "Cotton", "Groundnut", "Pulses"],
+        "avgRainfall": "920 mm"
+      }
+    ]
+  },
+  {
+    "state": "Maharashtra",
+    "stateTe": "మహారాష్ట్ర",
+    "district": "Nashik",
+    "districtTe": "నాసిక్",
+    "mandals": [
+      {
+        "mandal": "Niphad",
+        "mandalTe": "నిఫాడ్",
+        "soilTypes": ["Medium to Deep Black Volcanic Soil"],
+        "irrigationOptions": ["Godavari Canal", "Drip"],
+        "suitableCrops": ["Tomato", "Onion", "Grapes", "Sugarcane"],
+        "avgRainfall": "750 mm"
+      },
+      {
+        "mandal": "Dindori",
+        "mandalTe": "దిండోరి",
+        "soilTypes": ["Well-drained Black Soil"],
+        "irrigationOptions": ["Drip", "Borewell"],
+        "suitableCrops": ["Tomato", "Onion", "Grapes", "Soybean"],
+        "avgRainfall": "820 mm"
+      }
+    ]
+  }
+]

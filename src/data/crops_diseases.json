@@ -1,0 +1,448 @@
+[
+  {
+    "id": "tomato-early-blight",
+    "crop": "Tomato",
+    "cropHi": "टमाटर",
+    "cropTe": "టమాట",
+    "cropTa": "தக்காளி",
+    "cropMr": "टोमॅटो",
+    "cropBn": "টমেটো",
+    "cropPa": "ਟਮਾਟਰ",
+    "cropKn": "ಟೊಮೆಟೊ",
+    "diseaseName": "Early Blight (Alternaria solani)",
+    "regionalNames": {
+      "hi": "अगेती झुलसा (अर्ली ब्लाइट)",
+      "te": "ముందస్తు తెగులు (ఎర్లీ బ్లైట్)",
+      "ta": "முன் பருவ கருகல் நோய்",
+      "mr": "करपा रोग (अगेती करपा)",
+      "bn": "আগেতি ব্লাইট",
+      "pa": "ਅਗੇਤਾ ਝੁਲਸਾ ਰੋਗ",
+      "kn": "ಮುಂಚಿನ ಕರಗು ರೋಗ"
+    },
+    "pathogen": "Fungal (Alternaria solani)",
+    "severityLevels": {
+      "mild": 15,
+      "moderate": 42,
+      "severe": 78
+    },
+    "symptoms": [
+      "Dark brown to black concentric target-board rings on older lower leaves",
+      "Yellow chlorotic halo surrounding brown lesions",
+      "Stem collar rot and premature leaf drop reducing fruit yield"
+    ],
+    "organicRemedies": [
+      {
+        "name": "Sour Buttermilk (खट्टा छाछ) + Asafoetida (हींग) Spray",
+        "nameHi": "खट्टी छाछ और हींग का प्राकृतिक फफूंदनाशक घोल",
+        "nameTe": "పుల్లటి మజ్జిగ మరియు ఇంగువ స్ప్రే",
+        "description": "Mix 1 Litre 4-5 days old sour fermented buttermilk with 10 Litres water and 5g asafoetida. Spray thoroughly in early morning. The lactic acid bacteria suppress Alternaria fungal spores.",
+        "cost": "₹15 - ₹20 per pump",
+        "frequency": "Every 7 days during humid weather"
+      },
+      {
+        "name": "5% Neem Seed Kernel Extract (NSKE) or Neem Oil",
+        "nameHi": "5% नीम बीज अर्क या नीम तेल (3 मिली/लीटर)",
+        "nameTe": "5% వేప గింజల కషాయం",
+        "description": "Mix 45ml Neem Oil with 15L water and 5ml liquid soap as emulsifier. Coats leaves with azadirachtin, preventing fungal spore germination.",
+        "cost": "₹25 per pump",
+        "frequency": "Every 10 days"
+      },
+      {
+        "name": "Trichoderma viride Bio-fungicide",
+        "nameHi": "ट्राइकोडर्मा विरिडी जैविक फफूंदनाशक",
+        "nameTe": "ట్రైకోడెర్మా విరిడే జైవిక మందు",
+        "description": "Dissolve 50-75g Trichoderma powder in 15L water with 50g jaggery. Spray foliage and drench root zone.",
+        "cost": "₹30 per 15L pump",
+        "frequency": "2 sprays at 12-day interval"
+      }
+    ],
+    "chemicalRemedies": [
+      {
+        "name": "Mancozeb 75% WP (Indofil M-45)",
+        "dosagePerLiter": "2.5 g / Litre",
+        "dosagePer15LPump": "37.5 - 40 grams (approx 4 matchboxes)",
+        "estimatedCost": "₹45 per pump",
+        "preHarvestIntervalDays": 5,
+        "instructions": "Protective contact fungicide. Spray on both leaf surfaces. Do not spray during strong midday sun."
+      },
+      {
+        "name": "Azoxystrobin 18.2% + Difenoconazole 11.4% SC (Amistar Top)",
+        "dosagePerLiter": "1 ml / Litre",
+        "dosagePer15LPump": "15 ml",
+        "estimatedCost": "₹110 per pump",
+        "preHarvestIntervalDays": 7,
+        "instructions": "Systemic curative fungicide for severe spreading blight. Provides 14-day persistent protection."
+      }
+    ],
+    "preventionTips": [
+      "Avoid overhead sprinkler irrigation; keep leaf canopy dry",
+      "Prune bottom 6 inches of foliage to prevent soil splash transmission",
+      "Rotate crop with non-solanaceous crops (maize, pulses) for 2 seasons"
+    ]
+  },
+  {
+    "id": "cotton-pink-bollworm",
+    "crop": "Cotton",
+    "cropHi": "कपास",
+    "cropTe": "పత్తి",
+    "cropTa": "பருத்தி",
+    "cropMr": "कापूस",
+    "cropBn": "তুলা",
+    "cropPa": "ਨਰਮਾ/ਕਪਾਹ",
+    "cropKn": "ಹತ್ತಿ",
+    "diseaseName": "Pink Bollworm (Pectinophora gossypiella)",
+    "regionalNames": {
+      "hi": "गुलाबी सुंडी (पिंक बॉलवर्म)",
+      "te": "గులాబీ రంగు కాయ తొలుచు పురుగు",
+      "ta": "இளஞ்சிவப்பு காய்ப்புழு",
+      "mr": "गुलाबी बोंड अळी",
+      "bn": "গোলাপী বোলওয়ার্ম",
+      "pa": "ਗੁਲਾਬੀ ਸੁੰਡੀ",
+      "kn": "ಗುಲಾಬಿ ಕಾಯಿ ಕೊರೆಯುವ ಹುಳು"
+    },
+    "pathogen": "Insect Pest (Lepidoptera larva)",
+    "severityLevels": {
+      "mild": 20,
+      "moderate": 55,
+      "severe": 85
+    },
+    "symptoms": [
+      "Rosetted flower buds ('rosette' flowers failing to open normally)",
+      "Entry boreholes on bolls sealed with frass/larval excreta",
+      "Stained lint and premature boll dropping with hollowed seeds"
+    ],
+    "organicRemedies": [
+      {
+        "name": "Pheromone Trap Lure (Gossyplure)",
+        "nameHi": "फेरोमोन ट्रैप (गोसीप्लूर गंध प्रपंच)",
+        "nameTe": "ఫెరోమోన్ ఉచ్చులు",
+        "description": "Install 8-10 pheromone traps per acre at crop canopy height. Captures male moths, disrupting mating cycles.",
+        "cost": "₹50 - ₹70 per trap",
+        "frequency": "Replace lures every 25-30 days"
+      },
+      {
+        "name": "Trichogramma bactrae Parasitoid Cards (Tricho-Cards)",
+        "nameHi": "ट्राइकोग्रामा परजीवी मित्र कीट कार्ड",
+        "nameTe": "ట్రైకోగ్రామా పరాన్నజీవి కార్డులు",
+        "description": "Staple 2-3 Tricho-cards per acre on underside of cotton leaves. Beneficial mini-wasps parasitize and destroy bollworm eggs.",
+        "cost": "₹40 per card",
+        "frequency": "Release every 10 days during flowering/boll stage"
+      },
+      {
+        "name": "Neem Oil 10,000 PPM",
+        "nameHi": "नीम तेल 10,000 पीपीएम (2-3 मिली/लीटर)",
+        "nameTe": "వేప నూనె స్ప్రే",
+        "description": "Spray 35-40ml in 15L water. Repels egg-laying moths and inhibits larval feeding.",
+        "cost": "₹40 per pump",
+        "frequency": "Every 10 days"
+      }
+    ],
+    "chemicalRemedies": [
+      {
+        "name": "Emamectin Benzoate 5% SG (Proclaim)",
+        "dosagePerLiter": "0.4 g / Litre",
+        "dosagePer15LPump": "6 - 7 grams",
+        "estimatedCost": "₹75 per pump",
+        "preHarvestIntervalDays": 14,
+        "instructions": "Effective on young caterpillars before they burrow deep inside bolls. Spray at evening."
+      },
+      {
+        "name": "Chlorantraniliprole 18.5% SC (Coragen)",
+        "dosagePerLiter": "0.3 ml / Litre",
+        "dosagePer15LPump": "5 ml",
+        "estimatedCost": "₹130 per pump",
+        "preHarvestIntervalDays": 20,
+        "instructions": "Target when economic threshold exceeds 8 moths/trap/night for 3 consecutive nights."
+      }
+    ],
+    "preventionTips": [
+      "Avoid extending cotton ratoon crop beyond 150 days to break pest lifecycle",
+      "Hang bird perches (15-20 per acre) so predatory birds eat caterpillars",
+      "Burn or deep plow crop residue after final picking"
+    ]
+  },
+  {
+    "id": "rice-blast",
+    "crop": "Rice / Paddy",
+    "cropHi": "धान (चावल)",
+    "cropTe": "వరి",
+    "cropTa": "நெல்",
+    "cropMr": "भात (धान)",
+    "cropBn": "ধান",
+    "cropPa": "ਝੋਨਾ / ਧਾਨ",
+    "cropKn": "ಭತ್ತ",
+    "diseaseName": "Rice Blast (Magnaporthe oryzae)",
+    "regionalNames": {
+      "hi": "धान का झोंका रोग (ब्लास्ट)",
+      "te": "వరి అగ్గితెగులు (బ్లాస్ట్)",
+      "ta": "நெல் குலை நோய்",
+      "mr": "तांदळाचा करपा रोग (ब्लास्ट)",
+      "bn": "ধানের ব্লাস্ট রোগ",
+      "pa": "ਝੋਨੇ ਦਾ ਬਲਾਸਟ ਰੋਗ",
+      "kn": "ಭತ್ತದ ಬ್ಲಾಸ್ಟ್ ರೋಗ"
+    },
+    "pathogen": "Fungal (Magnaporthe oryzae)",
+    "severityLevels": {
+      "mild": 18,
+      "moderate": 48,
+      "severe": 80
+    },
+    "symptoms": [
+      "Diamond/spindle-shaped lesions with grey or whitish centers and brown/red margins",
+      "Lesions enlarge and coalesce, burning and drying up entire leaf blades",
+      "Neck blast causing black rot at panicle base, leading to empty white chaffy grains"
+    ],
+    "organicRemedies": [
+      {
+        "name": "Pseudomonas fluorescens Bio-Control",
+        "nameHi": "स्यूडोमोनास फ्लोरेसेंस जैविक घोल",
+        "nameTe": "సూడోమోనాస్ ఫ్లోరోసెన్స్",
+        "description": "Dissolve 100g Pseudomonas powder in 15L water. Produces antifungal metabolites that block blast spore growth.",
+        "cost": "₹35 per pump",
+        "frequency": "Early morning spray at boot-leaf stage"
+      },
+      {
+        "name": "Cow Urine (गोमूत्र) + Neem & Calotropis Leaf Extract",
+        "nameHi": "देसी गोमूत्र, नीम और मदार पत्ती का काढ़ा",
+        "nameTe": "గోమూత్రం మరియు వేప కషాయం",
+        "description": "Boil 1L cow urine with crushed neem and aak (calotropis) leaves. Dilute in 15L water. Acts as strong biopesticide.",
+        "cost": "₹10 per pump",
+        "frequency": "Every 10 days"
+      }
+    ],
+    "chemicalRemedies": [
+      {
+        "name": "Tricyclazole 75% WP (Beam / Baan)",
+        "dosagePerLiter": "0.6 g / Litre",
+        "dosagePer15LPump": "9 - 10 grams",
+        "estimatedCost": "₹55 per pump",
+        "preHarvestIntervalDays": 15,
+        "instructions": "Gold-standard blast fungicide. Inhibits melanin biosynthesis in fungal appressoria. Spray at initial spot appearance."
+      },
+      {
+        "name": "Isoprothiolane 40% EC (Fuji-One)",
+        "dosagePerLiter": "1.5 ml / Litre",
+        "dosagePer15LPump": "22.5 ml",
+        "estimatedCost": "₹70 per pump",
+        "preHarvestIntervalDays": 14,
+        "instructions": "Effective for both leaf blast and neck blast stages."
+      }
+    ],
+    "preventionTips": [
+      "Avoid excessive split doses of Urea/Nitrogen fertilizers which make leaves succulent and prone to blast",
+      "Maintain 5cm standing water in paddy fields; avoid severe drought stress",
+      "Use certified blast-resistant varieties (MTU-1010, IR-64, Swarna Sub-1)"
+    ]
+  },
+  {
+    "id": "potato-late-blight",
+    "crop": "Potato",
+    "cropHi": "आलू",
+    "cropTe": "బంగాళాదుంప",
+    "cropTa": "உருளைக்கிழங்கு",
+    "cropMr": "बटाटा",
+    "cropBn": "আলু",
+    "cropPa": "ਆਲੂ",
+    "cropKn": "ಆಲೂಗಡ್ಡೆ",
+    "diseaseName": "Late Blight (Phytophthora infestans)",
+    "regionalNames": {
+      "hi": "आलू का पछेती झुलसा (लेट ब्लाइट)",
+      "te": "ఆలస్యపు తెగులు (లేట్ బ్లైట్)",
+      "ta": "பின் பருவ கருகல் நோய்",
+      "mr": "बटाट्यावरील उशिरा येणारा करपा",
+      "bn": "আলুর নাবী ধসা রোগ",
+      "pa": "ਪਿਛੇਤਾ ਝੁਲਸਾ ਰੋਗ",
+      "kn": "ತಡವಾದ ಕರಗು ರೋಗ"
+    },
+    "pathogen": "Oomycete / Water mold (Phytophthora infestans)",
+    "severityLevels": {
+      "mild": 25,
+      "moderate": 60,
+      "severe": 92
+    },
+    "symptoms": [
+      "Water-soaked irregular pale green/brown spots at leaf tips and margins",
+      "White cottony mildew or mold growth on underside of leaves in morning mist",
+      "Rapidly turns entire foliage black and foul-smelling within 48-72 hours under cool foggy weather"
+    ],
+    "organicRemedies": [
+      {
+        "name": "Bordeaux Mixture (1%) Spray",
+        "nameHi": "बोर्डो मिश्रण (1% नीला थोथा + चूना)",
+        "nameTe": "బోర్డో మిశ్రమం 1%",
+        "description": "Dissolve 150g Copper Sulphate (नीला थोथा) and 150g Quick Lime in 15L water. Tested organic protector against late blight.",
+        "cost": "₹30 per pump",
+        "frequency": "Prophylactic spray before foggy spell"
+      },
+      {
+        "name": "Garlic-Chilli Herbal Extract Spray",
+        "nameHi": "लहसुन और तीखी मिर्च का अर्क",
+        "nameTe": "వెల్లుల్లి మరియు పచ్చిమిర్చి కషాయం",
+        "description": "Crush 100g garlic + 50g pungent chillies, soak in 2L water overnight, filter and mix with 13L water. Natural antimicrobial barrier.",
+        "cost": "₹20 per pump",
+        "frequency": "Weekly during high humidity"
+      }
+    ],
+    "chemicalRemedies": [
+      {
+        "name": "Metalaxyl 8% + Mancozeb 64% WP (Ridomil Gold)",
+        "dosagePerLiter": "2.5 g / Litre",
+        "dosagePer15LPump": "37.5 grams",
+        "estimatedCost": "₹85 per pump",
+        "preHarvestIntervalDays": 10,
+        "instructions": "Dual systemic and contact action. Stops mycelium spread inside tubers and leaves."
+      },
+      {
+        "name": "Cymoxanil 8% + Mancozeb 64% WP (Curzate)",
+        "dosagePerLiter": "3 g / Litre",
+        "dosagePer15LPump": "45 grams",
+        "estimatedCost": "₹95 per pump",
+        "preHarvestIntervalDays": 12,
+        "instructions": "Curative 'kickback' action within 48 hours of infection onset."
+      }
+    ],
+    "preventionTips": [
+      "Do not irrigate during cloudy or foggy weather",
+      "Earth up soil well around stems so spores washed from leaves do not reach underground tubers",
+      "Dehaulm (cut and remove top foliage) 10-12 days before tuber digging"
+    ]
+  },
+  {
+    "id": "chilli-leaf-curl",
+    "crop": "Chilli",
+    "cropHi": "मिर्च",
+    "cropTe": "మిరప",
+    "cropTa": "மிளகாய்",
+    "cropMr": "मिरची",
+    "cropBn": "লঙ্কা",
+    "cropPa": "ਮਿਰਚ",
+    "cropKn": "ಮೆಣಸಿನಕಾಯಿ",
+    "diseaseName": "Chilli Leaf Curl & Thrips Murda Complex",
+    "regionalNames": {
+      "hi": "मिर्च का मरोड़िया रोग (चूर्ड़ा-मुर्दा)",
+      "te": "మిరప బొబ్బర తెగులు (ముడత తెగులు)",
+      "ta": "மிளகாய் இலைச்சுருட்டு நோய்",
+      "mr": "मिरचीवरील चुरडा-मुरडा (बोकड्या)",
+      "bn": "লঙ্কার পাতা কোঁকড়ানো রোগ",
+      "pa": "ਮਿਰਚ ਦਾ ਮਰੋੜੀਆ ਰੋਗ",
+      "kn": "ಮೆಣಸಿನಕಾಯಿ ಎಲೆ ಮುದುರು ರೋಗ"
+    },
+    "pathogen": "Virus (ChLCV) vectored by Whiteflies (Bemisia tabaci) & Yellow Mites/Thrips",
+    "severityLevels": {
+      "mild": 22,
+      "moderate": 52,
+      "severe": 88
+    },
+    "symptoms": [
+      "Upward curling of leaf margins like a boat/cup due to thrips sucking sap",
+      "Downward curling of leaves like inverted cup caused by mite feeding",
+      "Puckering, thickening of leaves, severe stunting and flower abortion"
+    ],
+    "organicRemedies": [
+      {
+        "name": "Yellow & Blue Sticky Sticky Traps",
+        "nameHi": "पीले और नीले चिपचिपे प्रपंच (ट्रैप)",
+        "nameTe": "పసుపు మరియు నీలం జిగురు అట్టలు",
+        "description": "Install 25 yellow sheets (for whiteflies/aphids) and 15 blue sheets (for thrips) per acre at 1 foot above crop.",
+        "cost": "₹15 per trap",
+        "frequency": "Permanent setup, clean every 15 days"
+      },
+      {
+        "name": "Dashaparni Kashayam (10-leaf herbal extract)",
+        "nameHi": "दशपर्णी काढ़ा (10 औषधीय पत्तियों का अर्क)",
+        "nameTe": "దశపర్ణి కషాయం",
+        "description": "Traditional fermented concoction of neem, custard apple, papaya, calotropis leaves in cow urine. Sprayed 300ml per 15L pump.",
+        "cost": "₹12 per pump",
+        "frequency": "Every 8-10 days"
+      }
+    ],
+    "chemicalRemedies": [
+      {
+        "name": "Fipronil 5% SC (Regent)",
+        "dosagePerLiter": "2 ml / Litre",
+        "dosagePer15LPump": "30 ml",
+        "estimatedCost": "₹70 per pump",
+        "preHarvestIntervalDays": 7,
+        "instructions": "Controls thrips effectively. Spray underside of leaves."
+      },
+      {
+        "name": "Diafenthiuron 50% WP (Pegasus)",
+        "dosagePerLiter": "1.25 g / Litre",
+        "dosagePer15LPump": "18 - 20 grams",
+        "estimatedCost": "₹120 per pump",
+        "preHarvestIntervalDays": 10,
+        "instructions": "Broad spectrum against both mites and whitefly nymphs. Activates in presence of sunlight."
+      }
+    ],
+    "preventionTips": [
+      "Grow 3-4 border rows of tall maize or jowar around chilli field as physical insect barrier",
+      "Remove and destroy virus-infected plants immediately to stop secondary spread",
+      "Spray 5% neem extract at nursery stage before transplanting"
+    ]
+  },
+  {
+    "id": "healthy-crop",
+    "crop": "All Crops",
+    "cropHi": "स्वस्थ फसल",
+    "cropTe": "ఆరోగ్యకరమైన పంట",
+    "cropTa": "ஆரோக்கியமான பயிர்",
+    "cropMr": "निरोगी पीक",
+    "cropBn": "সুস্থ ফসল",
+    "cropPa": "ਤੰਦਰੁਸਤ ਫ਼ਸਲ",
+    "cropKn": "ಆರೋಗ್ಯಕರ ಬೆಳೆ",
+    "diseaseName": "Healthy Plant (No Active Infestation)",
+    "regionalNames": {
+      "hi": "पौधा पूर्णतः स्वस्थ है (कोई रोग नहीं)",
+      "te": "మొక్క ఆరోగ్యంగా ఉంది (రోగ లక్షణాలు లేవు)",
+      "ta": "பயிர் ஆரோக்கியமாக உள்ளது",
+      "mr": "पीक निरोगी आहे (कोणताही रोग नाही)",
+      "bn": "গাছ সম্পূর্ণ সুস্থ রয়েছে",
+      "pa": "ਬੂਟਾ ਬਿਲਕੁਲ ਤੰਦਰੁਸਤ ਹੈ",
+      "kn": "ಗಿಡವು ಸಂಪೂರ್ಣ ಆರೋಗ್ಯವಾಗಿದೆ"
+    },
+    "pathogen": "None (Optimum Vegetative/Reproductive Health)",
+    "severityLevels": {
+      "mild": 0,
+      "moderate": 0,
+      "severe": 0
+    },
+    "symptoms": [
+      "Vibrant green leaf lamina without necrotic lesions or yellow halos",
+      "Sturdy stem node spacing and active apical bud growth",
+      "No pest webbing, punctures, or honeydew secretions detected"
+    ],
+    "organicRemedies": [
+      {
+        "name": "Jeevamrit (जीवामृत) Growth Booster & Soil Conditioner",
+        "nameHi": "देसी जीवामृत पोषण घोल (200 लीटर/एकड़)",
+        "nameTe": "జీవామృతం ద్రావణం",
+        "description": "Apply 200L prepared Jeevamrit with irrigation water every 15 days to multiply beneficial soil mycorrhiza and earthworms.",
+        "cost": "₹50 per acre",
+        "frequency": "Every 15 days"
+      },
+      {
+        "name": "Panchagavya Foliar Tonic",
+        "nameHi": "पंचगव्य पर्णीय टॉनिक (3% घोल)",
+        "nameTe": "పంచగవ్య స్ప్రే",
+        "description": "Spray 450ml in 15L water to enhance photosynthetic efficiency, flowering retention, and disease resistance.",
+        "cost": "₹35 per pump",
+        "frequency": "Monthly"
+      }
+    ],
+    "chemicalRemedies": [
+      {
+        "name": "Water Soluble NPK 19:19:19 Foliar Grade",
+        "dosagePerLiter": "5 g / Litre",
+        "dosagePer15LPump": "75 grams",
+        "estimatedCost": "₹25 per pump",
+        "preHarvestIntervalDays": 0,
+        "instructions": "Balanced micronutrient nutrition for maximum vegetative tillering and yield boost."
+      }
+    ],
+    "preventionTips": [
+      "Maintain weed-free field borders to deny shelter to pest vectors",
+      "Conduct regular crop scouting twice weekly in morning hours",
+      "Test soil every 2 years to apply tailored organic compost"
+    ]
+  }
+]

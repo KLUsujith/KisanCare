@@ -2,6 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
+import { initClientApiInterceptor } from "./utils/clientApi.js";
+
+// Initialize client-side API engine for GitHub Pages & offline capability
+initClientApiInterceptor();
 
 // Unregister stale service workers and purge old caches
 if ("serviceWorker" in navigator) {
