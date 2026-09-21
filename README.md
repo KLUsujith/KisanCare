@@ -10,6 +10,10 @@
 
 🌐 **Live Deployment**: **[https://klusujith.github.io/KisanCare/](https://klusujith.github.io/KisanCare/)**
 
+📖 **Technical Documentation**:
+- 🎨 **[Frontend Architecture Documentation (FRONTEND_DOCUMENTATION.md)](./FRONTEND_DOCUMENTATION.md)** — Farmer UX, Component Hierarchy, i18n & Voice.
+- ⚙️ **[Backend Architecture & Source Code (BACKEND_DOCUMENTATION.md)](./BACKEND_DOCUMENTATION.md)** — Node.js/Express REST APIs, AI Vision Engine, Stochastic Models & Source Code.
+
 ---
 
 ## 🎬 Sample Walkthrough Video (డెమో వీడియో)
